@@ -3,25 +3,27 @@ import React from "react";
 const DetailPokemon = () => {
 
     return (
-        <div className="bg-[#ceeeed] py-16">
-            <div
-                class="bg-[#9dc8c6] p-6 rounded-xl font-sans max-w-md mx-auto sm:max-w-xl md:max-w-xl lg:flex lg:max-w-5xl xl:max-w-[1300px]">
-                <div class="hidden lg:block">
-                    <img src={require("../img/Charmeleon.png")} alt="event" class="object-cover pt-5 w-[300px] h-[300px]" />
+        <div class="bg-[#a9d5d3] items-center p-6 rounded-3xl max-w-md mx-auto sm:max-w-lg md:max-w-2xl grid lg:grid-cols-2 lg:max-w-5xl xl:max-w-6xl">
+            <div class="hidden lg:block mx-auto">
+                <img src={require("../img/Charmeleon.png")} alt="event" class="w-[400px] xl:w-[450px] rounded-xl shadow-xl " />
+            </div>
+            <div class="lg:py-12 pr-10 ">
+                <h2 class="text-3xl font-bold text-slate-700 md:text-3xl lg:text-4xl">Charmeleon</h2>
+                <img src={require("../img/Charmeleon.png")} alt="event"
+                    class="pt-4 rounded-xl shadow-xl w-[250px] mx-auto sm:py-10 sm:w-[300px] lg:hidden" />
+                <p class="pt-7 text-slate-600 text-justify sm:pt-5 lg:pt-7 text-sm sm:text-base md:text-base">
+                    Charmeleon is a bipedal, reptilian Pokémon. It has dark red scales and a cream underside from the chest down.
+                    It has blue eyes and a long snout with a slightly hooked tip. On the back of its head is a single horn-like protrusion.
+                </p>
+                <div className="text-center pt-8 font-bold" >
+                    <button className="rounded-3xl bg-[#cbe0de] px-16 py-2 text-slate-800 uppercase hover:bg-[#82b5b1]" >
+                        Add To My Pokemon
+                    </button>
                 </div>
-                <div class="lg:p-12">
-                    <h2 class="text-3xl font-bold text-slate-200 md:text-4xl lg:text-5xl">Ours Events</h2>
-                    {/* <img src={require("../img/Chikorita.png")} alt="event"
-                            class="mt-4 rounded-xl shadow-xl sm:mt-6 sm:h-full sm:w-full sm:object-cover sm:object-center lg:hidden" /> */}
-                    <p class="mt-2 text-slate-200 text-justify sm:pt-4 lg:pt-7 text-sm sm:text-base md:text-base">
-                        Pokémon GO Tour: Hoenn - Las Vegas arrives in Nevada in February 2023. Your favorite Pokémon from the Hoenn
-                        area Pokémon Ruby and Pokémon Sapphire make their way to Sunset Park! Pokémon GO Tour returns in 2023 for
-                        Pokémon GO Tour: Hoenn - Las Vegas and Pokémon GO Tour: Hoenn - Global!
-                    </p>
 
-                </div>
             </div>
         </div>
+
     )
 
 }
