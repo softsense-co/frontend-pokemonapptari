@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function Header() {
-    const buttonStyle = 'border-[1px] rounded-[10px] border-[#deedec] px-[20px] py-[7px]'
+    const buttonStyle = 'border-[2px] rounded-[10px] border-[#deedec] px-[20px] py-[7px]'
 
     return (
         <div className="header flex items-center justify-between px-20 pt-5">
@@ -23,9 +23,7 @@ function Header() {
                     <li className=" mr-12 hover:text-white/95">
                         <Link to="/MyPokemons">My Pokemons</Link>
                     </li>
-                    <li className=" mr-12 hover:text-white/95">
-                        <Link to="/DetailPokemon">Detail Example</Link>
-                    </li>
+                    
                 </ul>
             </div>
 

@@ -3,7 +3,7 @@ import DownloadAds from './downloadAds'
 
 function Home() {
   return (
-    <div className="wrapper flex items-center justify-between px-40  w-[100%] h-[850px]  z-[3]">
+    <div className="wrapper lg:flex items-center justify-between px-40  w-[100%] h-[850px]  z-[3]">
                 {/* left side */}
                 <div className="heading flex flex-col items-start justify-center text-slate-700 h-[100%] text-[3rem]">
                     <span>Experience The</span>
@@ -24,7 +24,7 @@ function Home() {
                 </div>
 
                 {/* right side */}
-                <div className="images relative w-[60%]">
+                <div className="images relative w-[60%] ">
                     <img
                         src={require("../img/pikachu.png")}
                         alt=""
