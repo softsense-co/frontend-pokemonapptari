@@ -8,7 +8,6 @@ function Pokemon() {
     <div>
       <Header />
       <PokemonItem />
-      <DetailPokemon />
     </div>
   )
 }

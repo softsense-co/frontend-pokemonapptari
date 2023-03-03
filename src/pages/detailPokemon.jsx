@@ -1,10 +1,14 @@
 import React from "react";
+import Header from "../components/header";
 
 const DetailPokemon = () => {
 
     return (
-        <div class="bg-[#a9d5d3] items-center p-6 rounded-3xl max-w-md mx-auto sm:max-w-lg md:max-w-2xl grid lg:grid-cols-2 lg:max-w-5xl xl:max-w-6xl">
-            <div class="hidden lg:block mx-auto">
+        
+       <div>
+        <Header />
+         <div class="bg-[#a9d5d3] items-center mt-10 p-6 rounded-3xl max-w-md mx-auto sm:max-w-lg md:max-w-2xl grid lg:grid-cols-2 lg:max-w-5xl xl:max-w-6xl">
+            <div class="hidden lg:block px-5">
                 <img src={require("../img/Charmeleon.png")} alt="event" class="w-[400px] xl:w-[450px] rounded-xl shadow-xl " />
             </div>
             <div class="lg:py-12 pr-10 ">
@@ -23,6 +27,7 @@ const DetailPokemon = () => {
 
             </div>
         </div>
+       </div>
 
     )
 

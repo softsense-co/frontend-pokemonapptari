@@ -23,6 +23,9 @@ function Header() {
                     <li className=" mr-12 hover:text-white/95">
                         <Link to="/MyPokemons">My Pokemons</Link>
                     </li>
+                    <li className=" mr-12 hover:text-white/95">
+                        <Link to="/DetailPokemon">Detail Example</Link>
+                    </li>
                 </ul>
             </div>
 
