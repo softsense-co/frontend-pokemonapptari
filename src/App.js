@@ -1,16 +1,18 @@
 import './App.css';
-import Header from './components/header';
-import Hero from './components/hero';
-import Experience from './components/Experience.jsx';
+import Hero from './pages/hero';
+import Pokemon from './pages/Pokemon.jsx';
+import { Routes, Route } from "react-router-dom";
+import MyPokemon from './pages/MyPokemon';
 
 function App() {
   return (
-    <div className="App text-white overflow-hidden ">
-      <Header />
-      <Hero />
-      <Experience />
-      
-    </div>
+    <>
+      <Routes>
+        <Route path='/' element={<Hero />} />
+        <Route path='/Pokemon' element={<Pokemon />} />
+        <Route path='/MyPokemons' element={<MyPokemon />} />
+      </Routes>
+    </>
   );
 }
 
