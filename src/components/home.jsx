@@ -3,7 +3,7 @@ import DownloadAds from './downloadAds'
 
 function Home() {
   return (
-    <div className="wrapper bg-[#ceeeed] flex items-center justify-between px-40  w-[100%] h-[850px]  z-[3]">
+    <div className="wrapper flex items-center justify-between px-40  w-[100%] h-[850px]  z-[3]">
                 {/* left side */}
                 <div className="heading flex flex-col items-start justify-center text-slate-700 h-[100%] text-[3rem]">
                     <span>Experience The</span>
@@ -21,11 +21,7 @@ function Home() {
                         <span className="text-[13px]">Download now on IOS and Android</span>
                         <DownloadAds />
                     </div>
-
-
                 </div>
-
-
 
                 {/* right side */}
                 <div className="images relative w-[60%]">

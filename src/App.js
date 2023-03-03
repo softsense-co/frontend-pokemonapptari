@@ -1,8 +1,8 @@
 import './App.css';
 import Hero from './pages/hero';
-import Pokemon from './pages/Pokemon.jsx';
-import { Routes, Route } from "react-router-dom";
+import Pokemon from './pages/Pokemon';
 import MyPokemon from './pages/MyPokemon';
+import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
