@@ -20,7 +20,7 @@ const DetailPokemon = () => {
                     It has blue eyes and a long snout with a slightly hooked tip. On the back of its head is a single horn-like protrusion.
                 </p>
                 <div className="text-center pt-8 font-bold" >
-                    <button className="rounded-3xl bg-[#cbe0de] px-16 py-2 text-slate-800 uppercase hover:bg-[#82b5b1]" >
+                    <button className="rounded-3xl bg-[#afd1ce] px-16 py-2 text-slate-800 uppercase hover:bg-[#82b5b1]" >
                         Add To My Pokemon
                     </button>
                 </div>

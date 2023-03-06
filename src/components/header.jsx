@@ -29,7 +29,9 @@ function Header() {
 
             {/* button */}
             <div className="buttons text-slate-700 font-medium ">
-                <button className={buttonStyle + ` mr-2 hover:bg-[#deedec]`}>Sign In</button>
+                <button  className={buttonStyle + ` mr-2 hover:bg-[#deedec]`}>
+                    Sign In
+                </button>
             </div>
         </div>
     )
