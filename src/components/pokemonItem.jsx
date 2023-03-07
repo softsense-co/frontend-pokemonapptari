@@ -1,12 +1,8 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 
-const PokemonItem = () => {
 
-    const traceButton = () => {
-        console.log("Tombol Di Klik");
-        alert("Tombol diklik")
-    }
+const PokemonItem = () => {
 
     const pokemons = [
         {
@@ -96,6 +92,7 @@ const PokemonItem = () => {
             <h1 className='text-4xl font-bold text-slate-700 py-3'>Pokemons</h1>
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 md:px-10 py-8 gap-4 sm:gap-10 md:gap-12 lg:gap-10">
 
+                {/* Menampilkan detail satu Pokemon */}
                 <div className='bg-white/75 p-5 rounded-[35px]'>
                     <Link to="/DetailPokemon">
                         <img src={require("../img/Charmeleon.png")} alt="" className='w-full md:w-[18rem] mx-auto py-7' />
@@ -133,7 +130,7 @@ const PokemonItem = () => {
                                 </p>
                             </div>
                             <div className='text-right pr-3'>
-                                <button onClick={() => traceButton()}
+                                <button
                                     type="button"
                                     className='px-5 py-2.5 bg-[#55a8a3] text-slate-900 font-semibold text-sm uppercase rounded-xl hover:bg-[#bfdfde]'>
                                     Add
