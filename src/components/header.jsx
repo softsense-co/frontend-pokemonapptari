@@ -23,15 +23,18 @@ function Header() {
                     <li className=" mr-12 hover:text-white/95">
                         <Link to="/MyPokemons">My Pokemons</Link>
                     </li>
-            
+
                 </ul>
             </div>
 
             {/* button */}
             <div className="buttons text-slate-700 font-medium ">
-                <button  className={buttonStyle + ` mr-2 hover:bg-[#deedec]`}>
-                    Sign In
-                </button>
+                <Link to="/SignIn">
+                    <button className={buttonStyle + ` mr-2 hover:bg-[#deedec]`}>
+                        Sign In
+                    </button>
+                </Link>
+
             </div>
         </div>
     )
