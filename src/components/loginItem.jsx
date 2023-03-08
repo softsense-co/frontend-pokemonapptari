@@ -10,13 +10,13 @@ const Login = (props) => {
         console.log(email);
     }
 
-    const buttonStyle = 'bg-[#b1ced8] rounded-[8px]  py-1'
+    const buttonStyle = 'bg-[#b1ced8] rounded-xl  py-[5px]'
 
     return (
         // screen
         <div className='flex w-full  lg:w-full h-screen  items-center justify-center'>
             {/* screen dalam */}
-            <div className=' flex bg-white/80 py-20 rounded-3xl '>
+            <div className=' flex bg-white/50 py-20 rounded-3xl '>
                 {/* form login */}
                 <div className='pl-20 md:pr-10'>
                     <h1 className='text-3xl font-extrabold text-center py-8 text-slate-600'>SIGN IN</h1>
@@ -45,7 +45,7 @@ const Login = (props) => {
                         <Link to="/SignUp">
                             <button
                                 className='font-semibold text-xs text-[#83a9a5] hover:text-[#5f6060]'
-                                onClick={() => props.onFormSwitch('register')}>Don't have an account? Sign Up</button>
+                                onClick={() => props.onFormSwitch('register')}>Don't have an account? <span className='font-extrabold'>Sign Up</span></button>
                         </Link>
 
                     </div>

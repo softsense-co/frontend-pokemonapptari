@@ -18,7 +18,7 @@ const RegisterItem = (props) => {
         // screen
         <div className='flex w-full  lg:w-full h-screen  items-center justify-center'>
             {/* screen dalam */}
-            <div className=' flex bg-white/80 py-20 rounded-3xl '>
+            <div className=' flex bg-white/50 py-20 rounded-3xl '>
                 {/* form login */}
                 <div className='pl-20 md:pr-10'>
                     <h1 className='text-3xl font-extrabold text-center py-8 text-slate-600'>SIGN UP</h1>
@@ -51,7 +51,7 @@ const RegisterItem = (props) => {
                     <div className='flex flex-col gap-y-4 py-10'>
                         <button className={buttonStyle + ` mr-2 hover:bg-[#deedec] text-slate-600 font-semibold`}>Sign Up</button>
                         <Link to="/SignIn">
-                            <button className='font-semibold text-xs text-[#83a9a5] hover:text-[#5f6060]'>Alredy have an account? Sign in here</button>
+                            <button className='font-semibold text-xs text-[#83a9a5] hover:text-[#5f6060]'>Alredy have an account? <span className='font-extrabold'>Sign in</span> here</button>
                         </Link>
                     </div>
                 </div>
