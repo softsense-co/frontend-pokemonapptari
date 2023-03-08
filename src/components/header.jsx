@@ -14,16 +14,18 @@ function Header() {
             {/* side center menu */}
             <div className="menu flex">
                 <ul className="flex w-[100%] justify-between text-slate-800 font-semibold">
-                    <li className=" mr-12 hover:text-white/95">
+                    <li className=" mr-12 hover:text-white">
                         <Link to="/">Home</Link>
                     </li>
-                    <li className=" mr-12 hover:text-white/95">
+                    <li className=" mr-12 hover:text-white">
                         <Link to="/Pokemon">Pokemons</Link>
                     </li>
-                    <li className=" mr-12 hover:text-white/95">
+                    <li className=" mr-12 hover:text-white">
                         <Link to="/MyPokemons">My Pokemons</Link>
                     </li>
-
+                    <li className=" mr-12 hover:text-white">
+                        <Link to="/Todo">Todo</Link>
+                    </li>
                 </ul>
             </div>
 
