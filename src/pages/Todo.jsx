@@ -1,27 +1,49 @@
 import React, { useState } from 'react'
 import Header from '../components/header'
+import { FaEdit, FaTrash, Fa } from "react-icons/fa";
+
 
 const Todo = () => {
 
     const [newInput, setNewInput] = useState("");
     const [inputs, setInputs] = useState([]);
+    const [editID, setEditID] = useState(0);
 
     function AddInput() {
+        if (newInput !== "") {
+            setInputs([...inputs, { newInput, id: `${newInput}-${Date.now()}`}]);
+            setNewInput("")
+        }
 
-        const input = {
-            id: Math.floor(Math.random() * 1000),
-            value: newInput
-        };
+        
+        if (editID) {
+            const editArray = inputs.find((input) => input.id === editID);
+            const updateArray = inputs.map((input) => 
+            input.id === editArray.id ? input={ id: input.id, newInput} : { id: input.id, newInput: input.newInput} );
+            setInputs(updateArray);
+            setEditID(0);
+            return;
+        }
+        // const input = {
+        //     id: Math.floor(Math.random() * 1000),
+        //     value: newInput
+        // };
 
-        setInputs(oldList => [...oldList, input]);
-        setNewInput("");
+        // setInputs(oldList => [...oldList, input]);
+        // setNewInput("");
 
 
     };
 
     function DeleteInput(id) {
         const newArray = inputs.filter(input => input.id !== id);
-        setInputs(newArray);
+        setInputs([...newArray]);
+    };
+
+    function EditInput(id) {
+        const editArray = inputs.find(input => input.id === id);
+        setNewInput(editArray.newInput);
+        setEditID(id);
     };
 
     return (
@@ -32,13 +54,12 @@ const Todo = () => {
                 <div className='flex justify-center'>
                     <input type="text" className='w-[350px] border-1 rounded-lg p-2 mt-1'
                         value={newInput}
-                        required
                         onChange={e => setNewInput(e.target.value)} />
 
                     <button
                         onClick={() => AddInput()}
                         type="submit"
-                        className=' px-5 py-[1px] bg-[#55a8a3] text-slate-900 font-semibold text-sm uppercase rounded-lg hover:bg-[#96b6b5]'>
+                        className=' px-3 py-[1px] bg-[#55a8a3] text-slate-900 font-semibold text-sm uppercase rounded-lg hover:bg-[#96b6b5]'>
                         Add
                     </button>
 
@@ -46,13 +67,18 @@ const Todo = () => {
                 </div>
                 <div className='flex justify-center py-5'>
                     <ul className='font-medium text-slate-600'>
-                        {inputs.map(input => {
+                        {inputs.map(newInput => {
                             return (
-                                <li key={input.id}>{input.value}
+                                <li className='px-5' key={newInput.id}>{newInput.newInput}
                                     <button
-                                    type="submit"
-                                    className=' px-5 py-2 bg-[#55a8a3] text-slate-900 font-semibold text-sm uppercase rounded-lg hover:bg-[#96b6b5]'
-                                        onClick={() => DeleteInput(input.id)}>Delete
+                                        type="submit"
+                                        className=' p-3 bg-[#55a8a3] text-slate-900 font-semibold text-sm uppercase rounded-lg hover:bg-[#96b6b5]'
+                                        onClick={() => DeleteInput(newInput.id)}> <FaTrash />
+                                    </button>
+                                    <button
+                                        type="submit"
+                                        className=' p-3 bg-[#55a8a3] text-slate-900 font-semibold text-sm uppercase rounded-lg hover:bg-[#96b6b5]'
+                                        onClick={() => EditInput(newInput.id)}> <FaEdit />
                                     </button>
                                 </li>
                             )
