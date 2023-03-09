@@ -22,10 +22,7 @@ const Todo = () => {
         
     }
 
-    useEffect(() => {
-        alert("hi")
-    }, [editID])
-
+    
 
     useEffect(() => {
         handleGetInput()

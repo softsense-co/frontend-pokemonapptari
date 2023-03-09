@@ -7,7 +7,6 @@ import DetailPokemon from './pages/detailPokemon';
 import SignIn from './pages/signIn';
 import SignUp from './pages/signUp';
 import Todo from './pages/Todo';
-import TodoList from './pages/TodoList';
 
 function App() {
   return (
@@ -15,7 +14,6 @@ function App() {
       <Routes>
         <Route path='/' element={<Hero />} />
         <Route path='/Todo' element={<Todo />} />
-        <Route path='/Todolist' element={<TodoList />} />
         <Route path='/Pokemon' element={<Pokemon />} />
         <Route path='/MyPokemons' element={<MyPokemon />} />
         <Route path='/DetailPokemon' element={<DetailPokemon />} />

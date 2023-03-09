@@ -26,9 +26,7 @@ function Header() {
                     <li className=" mr-12 hover:text-white">
                         <Link to="/Todo">Todo</Link>
                     </li>
-                    <li className=" mr-12 hover:text-white">
-                        <Link to="/Todolist">Todo List</Link>
-                    </li>
+                   
                 </ul>
             </div>
 
