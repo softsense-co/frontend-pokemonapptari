@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../components/header'
 import { FaEdit, FaTrash, Fa } from "react-icons/fa";
 
@@ -9,9 +9,36 @@ const Todo = () => {
     const [inputs, setInputs] = useState([]);
     const [editID, setEditID] = useState(0);
 
+    const handleChangeInput = (values) => {
+        setInputs(values)
+        localStorage.setItem("todos", JSON.stringify(values))
+    }
+
+    const handleGetInput = () => {
+        const dataFromStorage = localStorage.getItem("todos");
+        if (dataFromStorage) {
+            setInputs(JSON.parse(dataFromStorage))
+        }
+        
+    }
+
+    useEffect(() => {
+        alert("hi")
+    }, [editID])
+
+
+    useEffect(() => {
+        handleGetInput()
+
+        return () => {
+
+            //
+        }
+    }, [])
+
     function AddInput() {
         if (newInput !== "") {
-            setInputs([...inputs, { newInput, id: `${newInput}-${Date.now()}`}]);
+            handleChangeInput([...inputs, { newInput, id: `${newInput}-${Date.now()}`}]);
             setNewInput("")
         }
 
@@ -20,7 +47,7 @@ const Todo = () => {
             const editArray = inputs.find((input) => input.id === editID);
             const updateArray = inputs.map((input) => 
             input.id === editArray.id ? input={ id: input.id, newInput} : { id: input.id, newInput: input.newInput} );
-            setInputs(updateArray);
+            handleChangeInput(updateArray);
             setEditID(0);
             return;
         }
@@ -37,7 +64,7 @@ const Todo = () => {
 
     function DeleteInput(id) {
         const newArray = inputs.filter(input => input.id !== id);
-        setInputs([...newArray]);
+        handleChangeInput([...newArray]);
     };
 
     function EditInput(id) {
@@ -90,5 +117,5 @@ const Todo = () => {
         </div>
     )
 }
-
+ 
 export default Todo
