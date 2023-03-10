@@ -103,7 +103,7 @@ const PokemonItem = () => {
                         <div className='bg-white/75 p-4 rounded-[35px]'>
                             <Link to="/DetailPokemon">
                                 <img src={pokemon.image} alt="" className='h-52 mx-auto' />
-                                <h5 className='text-slate-700 text-lg md:text-xl  font-bold mb-2  text-center uppercase'>{pokemon.name}</h5>
+                                <h5 className='text-slate-700 text-lg md:text-xl font-bold py-4  text-center uppercase'>{pokemon.name}</h5>
                             </Link>
                             <div className='text-sm md:text-base pb-2 text-left pl-3'>
                                 <p className='text-slate-600'>

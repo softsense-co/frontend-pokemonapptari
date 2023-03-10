@@ -23,8 +23,6 @@ const Todo = () => {
 
     }
     // Local storage
-
-
     useEffect(() => {
         handleGetInput()
 
@@ -74,42 +72,47 @@ const Todo = () => {
     return (
         <div>
             <Header />
-            <div className='bg-white/50 mt-10 py-5 rounded-3xl max-w-md mx-auto sm:max-w-lg md:max-w-2xl  lg:max-w-4xl xl:max-w-[50rem]'>
+            <div className='bg-white/50 mt-10 py-3 rounded-3xl shadow-2xl max-w-md mx-auto sm:max-w-lg md:max-w-2xl  lg:max-w-4xl xl:max-w-[50rem]'>
                 <h1 className='text-3xl font-extrabold text-center py-8 text-slate-600'>Todo List</h1>
                 {/* form todo */}
-                <div className='flex justify-center'>
-                    <input type="text" className='w-[350px] rounded-lg p-2 mt-1'
-                        value={newInput}
-                        onChange={e => setNewInput(e.target.value)} />
+                <form onSubmit={(e) => {
+                    e.preventDefault()
+                    addList()
+                }}>
+                    <div className='flex justify-center'>
+                        <input type="text" className='w-[350px] rounded-lg p-2 mt-1'
+                            value={newInput}
+                            onChange={e => setNewInput(e.target.value)} />
 
-                    <div className='px-3'>
-                        <button
-                            onClick={() => addList()}
-                            type="submit"
-                            className=' px-4 py-[10px] bg-[#8ebbb8] text-slate-800 font-semibold text-sm uppercase rounded-lg hover:bg-[#6ea4a2]'>
-                            Add
-                        </button>
+                        <div className='px-3'>
+                            <button
+                                onClick={() => addList()}
+                                type="button"
+                                className=' px-4 py-[10px] bg-[#8ebbb8] text-slate-800 font-semibold text-sm uppercase rounded-lg hover:bg-[#6ea4a2]'>
+                                Add
+                            </button>
+                        </div>
+
                     </div>
-
-                </div>
-                {/* list todo */}
-                <div className='pl-2 py-4'>
-                    <ul className='p-2 font-medium text-slate-600'>
+                </form>
+               
+                <div className='py-5'>
+                    <ul className=' font-medium text-slate-600'>
                         {inputs.map(newInput => {
                             return (
-                                <div className='flex items-center py-1 px-36'>
+                                <div className='grid grid-cols-2 items-center py-1 px-40'>
                                     <li key={newInput.id}>{newInput.newInput}</li>
-                                    <div className='px-[10px] grid grid-cols-2 gap-[10px]'>
+                                    <div className='md:pl-20 lg:pr-28 xl:pr-16  grid grid-cols-2 gap-3'>
                                         <button
-                                            type="submit"
-                                            className='p-[11px] bg-[#55a8a3] text-slate-100 font-semibold text-sm uppercase rounded-md hover:bg-[#96b6b5]'
+                                            type="button"
+                                            className='p-[11px] bg-[#55a8a3] text-slate-100 font-semibold rounded-md hover:bg-[#96b6b5]'
                                             onClick={() => deleteList(newInput.id)}>
                                             <FaTrash />
                                         </button>
-                                        
+
                                         <button
-                                            type="submit"
-                                            className='p-[11px] bg-[#55a8a3] text-slate-100 font-semibold text-sm uppercase rounded-md hover:bg-[#96b6b5]'
+                                            type="button"
+                                            className='p-[11px] bg-[#55a8a3] text-slate-100 font-semibold rounded-md hover:bg-[#96b6b5]'
                                             onClick={() => editList(newInput.id)}>
                                             <FaEdit />
                                         </button>
