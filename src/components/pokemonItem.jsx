@@ -6,6 +6,11 @@ const PokemonItem = () => {
 
     const pokemons = [
         {
+            name: "Charmeleon",
+            image: process.env.PUBLIC_URL + '/img/Charmeleon.png',
+            price: " US $38"
+        },
+        {
             name: "Totodile",
             image: process.env.PUBLIC_URL + '/img/totodile.png',
             price: " US $45"
@@ -51,11 +56,6 @@ const PokemonItem = () => {
             price: " US $38"
         },
         {
-            name: "Cubone",
-            image: require("../img/Cubone.png"),
-            price: " US $38"
-        },
-        {
             name: "Espurr",
             image: require("../img/Espurr.png"),
             price: " US $38"
@@ -81,6 +81,11 @@ const PokemonItem = () => {
             price: " US $38"
         },
         {
+            name: "Cubone",
+            image: require("../img/Cubone.png"),
+            price: " US $38"
+        },
+        {
             name: "Sobble",
             image: require("../img/Sobble.png"),
             price: " US $38"
@@ -92,35 +97,14 @@ const PokemonItem = () => {
             <h1 className='text-4xl font-bold text-slate-700 py-3'>Pokemons</h1>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 md:px-10 py-8 gap-4 sm:gap-10 md:gap-12 lg:gap-10">
 
-                {/* Menampilkan detail satu Pokemon */}
-                <div className='bg-white/75 p-5 rounded-[35px]'>
-                    <Link to="/DetailPokemon">
-                        <img src={process.env.PUBLIC_URL + '/img/Charmeleon.png'} alt="Example" className='w-full md:w-[20rem] mx-auto py-7' />
-                        <h5 className='text-slate-700 text-lg md:text-xl text-center font-bold mb-2 uppercase'>Charmeleon</h5>
-                    </Link>
-                    <div className='text-sm md:text-base pb-2  pl-3'>
-                        <p className='text-slate-600'>
-                            Price
-                        </p>
-                        <p className='text-slate-600 font-bold'>
-                            US $33
-                        </p>
-                    </div>
-                    <div className='text-right pr-3'>
-                        <button
-                            type="button"
-                            className=' px-3 py-2.5 bg-[#55a8a3] text-slate-900 font-semibold text-sm uppercase rounded-xl hover:bg-[#bfdfde]'>
-                            Add
-                        </button>
-                    </div>
-                </div>
-
                 {/* Looping array object */}
                 {pokemons.map(pokemon => {
                     return (
                         <div className='bg-white/75 p-4 rounded-[35px]'>
-                            <img src={pokemon.image} alt="" className='w-full md:w-[13rem] mx-auto py-5' />
-                            <h5 className='text-slate-700 text-lg md:text-xl  font-bold mb-2  text-center uppercase'>{pokemon.name}</h5>
+                            <Link to="/DetailPokemon">
+                                <img src={pokemon.image} alt="" className='h-52 mx-auto' />
+                                <h5 className='text-slate-700 text-lg md:text-xl  font-bold mb-2  text-center uppercase'>{pokemon.name}</h5>
+                            </Link>
                             <div className='text-sm md:text-base pb-2 text-left pl-3'>
                                 <p className='text-slate-600'>
                                     Price
