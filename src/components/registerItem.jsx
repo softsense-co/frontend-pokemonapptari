@@ -31,14 +31,14 @@ const RegisterItem = (props) => {
                                 className='w-full border-2 border-gray-100 rounded-xl p-2 mt-1'
                                 placeholder='username' />
                         </div>
-                        <div className='pt-5'>
+                        <div className='pt-3'>
                             <label htmlFor='email' className='text-sm font-medium text-slate-600'>Email</label>
                             <input value={email} onChange={(e) => setEmail(e.target.value)}
                                 type='email' id='email' name='email'
                                 className='w-full border-2 border-gray-100 rounded-xl p-2 mt-1'
                                 placeholder='emailaddres@gmail.com' />
                         </div>
-                        <div className='pt-5'>
+                        <div className='pt-3'>
                             <label htmlFor='password' className='text-sm font-medium text-slate-600'>Password</label>
                             <input value={pass} onChange={(e) => setPass(e.target.value)}
                                 type='password' id='password' name='password'
