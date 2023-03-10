@@ -7,12 +7,12 @@ const PokemonItem = () => {
     const pokemons = [
         {
             name: "Totodile",
-            image: require("../img/totodile.png"),
+            image: process.env.PUBLIC_URL + '/img/totodile.png',
             price: " US $45"
         },
         {
             name: "Bulbasaur",
-            image: require("../img/bulbasaur.png"),
+            image: process.env.PUBLIC_URL + '/img/bulbasaur.png',
             price: " US $40"
         },
         {
@@ -95,7 +95,7 @@ const PokemonItem = () => {
                 {/* Menampilkan detail satu Pokemon */}
                 <div className='bg-white/75 p-5 rounded-[35px]'>
                     <Link to="/DetailPokemon">
-                        <img src={require("../img/Charmeleon.png")} alt="" className='w-full md:w-[18rem] mx-auto py-7' />
+                        <img src={process.env.PUBLIC_URL + '/img/Charmeleon.png'} alt="Example" className='w-full md:w-[20rem] mx-auto py-7' />
                         <h5 className='text-slate-700 text-lg md:text-xl text-center font-bold mb-2 uppercase'>Charmeleon</h5>
                     </Link>
                     <div className='text-sm md:text-base pb-2  pl-3'>
@@ -109,7 +109,7 @@ const PokemonItem = () => {
                     <div className='text-right pr-3'>
                         <button
                             type="button"
-                            className=' px-5 py-2.5 bg-[#55a8a3] text-slate-900 font-semibold text-sm uppercase rounded-xl hover:bg-[#bfdfde]'>
+                            className=' px-3 py-2.5 bg-[#55a8a3] text-slate-900 font-semibold text-sm uppercase rounded-xl hover:bg-[#bfdfde]'>
                             Add
                         </button>
                     </div>
@@ -118,8 +118,8 @@ const PokemonItem = () => {
                 {/* Looping array object */}
                 {pokemons.map(pokemon => {
                     return (
-                        <div className='bg-white/75 p-5 rounded-[35px]'>
-                            <img src={pokemon.image} alt="" className='w-full md:w-[13rem] mx-auto py-7' />
+                        <div className='bg-white/75 p-4 rounded-[35px]'>
+                            <img src={pokemon.image} alt="" className='w-full md:w-[13rem] mx-auto py-5' />
                             <h5 className='text-slate-700 text-lg md:text-xl  font-bold mb-2  text-center uppercase'>{pokemon.name}</h5>
                             <div className='text-sm md:text-base pb-2 text-left pl-3'>
                                 <p className='text-slate-600'>
@@ -132,7 +132,7 @@ const PokemonItem = () => {
                             <div className='text-right pr-3'>
                                 <button
                                     type="button"
-                                    className='px-5 py-2.5 bg-[#55a8a3] text-slate-700 font-semibold text-sm uppercase rounded-xl hover:bg-[#bfdfde]'>
+                                    className='px-3 py-2.5 bg-[#55a8a3] text-slate-800 font-semibold text-sm uppercase rounded-xl hover:bg-[#bfdfde]'>
                                     Add
                                 </button>
                             </div>
