@@ -93,11 +93,11 @@ const Todo = () => {
 
                 </div>
                 {/* list todo */}
-                <div className='pl-40 py-4'>
+                <div className='pl-2 py-4'>
                     <ul className='p-2 font-medium text-slate-600'>
                         {inputs.map(newInput => {
                             return (
-                                <div className='flex items-center py-1'>
+                                <div className='flex items-center py-1 px-36'>
                                     <li key={newInput.id}>{newInput.newInput}</li>
                                     <div className='px-[10px] grid grid-cols-2 gap-[10px]'>
                                         <button
