@@ -47,15 +47,7 @@ const Todo = () => {
             setEditID(0);
             return;
         }
-        // const input = {
-        //     id: Math.floor(Math.random() * 1000),
-        //     value: newInput
-        // };
-
-        // setInputs(oldList => [...oldList, input]);
-        // setNewInput("");
-
-
+        
     };
 
     function deleteList(id) {
@@ -79,7 +71,7 @@ const Todo = () => {
                     e.preventDefault()
                     addList()
                 }}>
-                    <div className='flex justify-center'>
+                    <div className='flex justify-center items-center'>
                         <input type="text" className='w-[350px] rounded-lg p-2 mt-1'
                             value={newInput}
                             onChange={e => setNewInput(e.target.value)} />
@@ -88,7 +80,7 @@ const Todo = () => {
                             <button
                                 onClick={() => addList()}
                                 type="button"
-                                className=' px-4 py-[10px] bg-[#8ebbb8] text-slate-800 font-semibold text-sm uppercase rounded-lg hover:bg-[#6ea4a2]'>
+                                className='px-3 py-[10px] bg-[#8ebbb8] text-slate-800 font-semibold text-sm uppercase rounded-lg hover:bg-[#6ea4a2]'>
                                 Add
                             </button>
                         </div>

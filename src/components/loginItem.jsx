@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from "react-router-dom";
+import { FaArrowRight } from "react-icons/fa";
+
 
 const Login = (props) => {
     const [email, setEmail] = useState('');
@@ -47,13 +49,21 @@ const Login = (props) => {
                                 className='font-semibold text-xs text-[#83a9a5] hover:text-[#5f6060]'
                                 onClick={() => props.onFormSwitch('register')}>Don't have an account? <span className='font-extrabold'>Sign Up</span></button>
                         </Link>
-
+                        <Link to="/">
+                            <div className='flex items-center pt-10 font-extrabold text-xs text-[#83a9a5] hover:text-[#5f6060]'>
+                                Back To Home
+                                <FaArrowRight />
+                            </div>
+                        </Link>
                     </div>
+
+
                 </div>
 
                 {/* img login */}
                 <div className='px-10 flex items-center'>
                     <img src={require("../img/icon6.jpg")} alt="" className='hidden md:block rounded-2xl md:w-[43rem]' />
+
                 </div>
 
             </div>
