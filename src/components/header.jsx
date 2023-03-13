@@ -2,13 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function Header() {
-    const buttonStyle = 'border-[2px] rounded-[10px] border-[#deedec] px-[20px] py-[7px]'
+    const buttonStyle = 'border-[1px] rounded-[10px] border-[#deedec] px-[20px] py-[7px]'
 
     return (
-        <div className="header flex items-center justify-between px-20 lg:px-64 pt-5">
+        <div className="header flex items-center justify-between px-20 lg:px-64 pt-4">
             {/* logo */}
             <Link to="/">
-                <img src={require("../img/icon.png")} alt="" className="logo w-[100px] h-[80px] " />
+                <img src={require("../img/icon.png")} alt="" className="logo w-[100px] h-[78px] " />
             </Link>
 
             {/* side center menu */}
