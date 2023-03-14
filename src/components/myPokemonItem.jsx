@@ -23,6 +23,7 @@ const MyPokemonItem = () => {
         console.log(id);
         const newArray = pokemonDatas.filter(p => p.id !== id);
         setPokemonData([...newArray]);
+        localStorage.setItem('pokemonData', JSON.stringify([...newArray]));
         // const deleteItems = pokemonDatas.filter((elem, ind) => {
         //     return ind !== id;
         // });
