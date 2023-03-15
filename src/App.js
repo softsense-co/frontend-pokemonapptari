@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SignIn from './pages/signIn';
 import SignUp from './pages/signUp';
 import Todo from './pages/Todo';
+import DetailPokemon from './pages/detailPokemon';
 
 function App() {
   return (
@@ -17,6 +18,8 @@ function App() {
         <Route path='/MyPokemons' element={<MyPokemon />} />
         <Route path='/SignIn' element={<SignIn />} />
         <Route path='/SignUp' element={<SignUp />} />
+
+        <Route path='/DetailPokemon' element={<DetailPokemon />} />
       </Routes>
     </Router >
   );
