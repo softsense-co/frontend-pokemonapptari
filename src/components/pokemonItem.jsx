@@ -109,7 +109,7 @@ const PokemonItem = () => {
             autoClose: 2500
         });
 
-        // Cara Kedua :
+        // Cara Local Storage Kedua :
         // const myPokemons = JSON.parse(localStorage.getItem('pokemonData') || "[]");
         // const newMyPokemons = [...myPokemons, { id: item.id, name: item.name, image: item.image, price: item.price }];
         // localStorage.setItem('pokemonData', JSON.stringify(newMyPokemons));
@@ -141,10 +141,10 @@ const PokemonItem = () => {
                                 <input type="checkbox" id="modal" className="modal-toggle" />
                                 <div className="modal modal-bottom sm:modal-middle">
                                     <div className="modal-box text-left">
-                                        <h3 className="font-semibold text-slate-600 text-base">Add pokedex to My pokemon ?</h3>
+                                        <h3 className="font-semibold text-slate-600 text-base">Add pokedex to My Pokemon ?</h3>
                                         <div className="modal-action">
                                             <label htmlFor="modal" className="btn btn-sm">Cancel</label>
-                                            <label htmlFor="modal" className="btn btn-sm btn-accent" onClick={() => addPokemons(pokemon)}>Add</label>
+                                            <label htmlFor="modal" className="btn btn-sm btn-accent" onClick={() => addPokemons(pokemon)}>Yes !</label>
 
                                         </div>
                                     </div>
