@@ -8,7 +8,7 @@ function Header() {
         <div className="header flex items-center justify-between px-20 lg:px-64 pt-4">
             {/* logo */}
             <Link to="/">
-                <img src={require("../img/icon.png")} alt="" className="logo w-[100px] h-[78px] " />
+                <img src="/img/icon.png" alt="" className="logo w-[100px] h-[78px] " />
             </Link>
 
             {/* side center menu */}
