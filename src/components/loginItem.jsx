@@ -4,6 +4,7 @@ import { FaArrowRight } from "react-icons/fa";
 
 
 const Login = (props) => {
+
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
 
@@ -18,11 +19,11 @@ const Login = (props) => {
         // screen
         <div className='flex w-full  lg:w-full h-screen  items-center justify-center'>
             {/* screen dalam */}
-            <div className=' flex bg-white/50 py-20 rounded-3xl '>
+            <div className=' flex bg-white/50 px-10 py-20 rounded-3xl '>
                 {/* form login */}
                 <div className='pl-20 md:pr-10'>
                     <h1 className='text-3xl font-extrabold text-center py-8 text-slate-600'>SIGN IN</h1>
-                    <img src={require("../img/icon2.jpg")} alt="" className='md:hidden rounded-3xl py-5' />
+                    <img src={require("../img/icon6.jpg")} alt="" className='md:hidden rounded-3xl py-5' />
                     <form onSubmit={handleSubmit}>
                         <div>
                             <label htmlFor='email' className='text-sm font-medium text-slate-600'>Email</label>
@@ -62,7 +63,7 @@ const Login = (props) => {
 
                 {/* img login */}
                 <div className='px-10 flex items-center'>
-                    <img src={require("../img/icon6.jpg")} alt="" className='hidden md:block rounded-2xl md:w-[43rem]' />
+                    <img src="/img/icon6.jpg" alt="" className='hidden md:block rounded-2xl md:w-[43rem]' />
 
                 </div>
 

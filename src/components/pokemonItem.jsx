@@ -1,4 +1,7 @@
 import React from 'react'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const PokemonItem = () => {
 
@@ -52,12 +55,6 @@ const PokemonItem = () => {
             price: " US $38"
         },
         {
-            id: "9",
-            name: "Charmeleon",
-            image: '/img/Charmeleon.png',
-            price: " US $38"
-        },
-        {
             id: "10",
             name: "Blastoise",
             image: '/img/Blastoise.png',
@@ -97,7 +94,6 @@ const PokemonItem = () => {
 
     const addPokemons = (item) => {
         const myPokemonslocalstorage = localStorage.getItem('pokemonData')
-
         console.log(myPokemonslocalstorage)
 
         if (myPokemonslocalstorage) {
@@ -109,13 +105,16 @@ const PokemonItem = () => {
             localStorage.setItem('pokemonData', JSON.stringify(newMyPokemons));
         }
 
+        toast.success("Add data, Success!!", {
+            autoClose: 2500
+        });
+
         // Cara Kedua :
         // const myPokemons = JSON.parse(localStorage.getItem('pokemonData') || "[]");
         // const newMyPokemons = [...myPokemons, { id: item.id, name: item.name, image: item.image, price: item.price }];
         // localStorage.setItem('pokemonData', JSON.stringify(newMyPokemons));
 
     }
-
 
     return (
         <div className="flex flex-col justify-start px-[5rem] py-8 relative">
@@ -137,19 +136,24 @@ const PokemonItem = () => {
                                 </p>
                             </div>
                             <div className='text-right pr-3'>
+                                {/* The button to open modal */}
+                                <label htmlFor="modal" className="btn btn-sm border-0  bg-[#55a8a3] text-slate-700 font-medium text-sm uppercase rounded-md hover:bg-[#bfdfde]">Add</label>
+                                <input type="checkbox" id="modal" className="modal-toggle" />
+                                <div className="modal modal-bottom sm:modal-middle">
+                                    <div className="modal-box text-left">
+                                        <h3 className="font-semibold text-slate-600 text-base">Add pokedex to My pokemon ?</h3>
+                                        <div className="modal-action">
+                                            <label htmlFor="modal" className="btn btn-sm">Cancel</label>
+                                            <label htmlFor="modal" className="btn btn-sm btn-accent" onClick={() => addPokemons(pokemon)}>Add</label>
 
-                                <button
-                                    onClick={() => addPokemons(pokemon)}
-                                    type="button"
-                                    className='px-3 py-2 bg-[#55a8a3] text-slate-700 font-medium text-sm uppercase rounded-md hover:bg-[#bfdfde]'>
-                                    Add
-                                </button>
-
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
+                            <ToastContainer />
                         </div>
                     );
                 })}
-
 
             </div>
         </div>

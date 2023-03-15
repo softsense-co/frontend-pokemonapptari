@@ -65,7 +65,8 @@ const Todo = () => {
     return (
         <div>
             <Header />
-            <div className='bg-white/50 mt-10 py-3 rounded-3xl shadow-2xl max-w-md mx-auto sm:max-w-lg md:max-w-2xl  lg:max-w-4xl xl:max-w-[50rem]'>
+            <div className='pb-96'>
+            <div className='bg-white/50 my-10 py-3 rounded-3xl shadow-2xl max-w-md mx-auto sm:max-w-lg md:max-w-2xl lg:max-w-4xl xl:max-w-[50rem]'>
                 <h1 className='text-3xl font-extrabold text-center py-8 text-slate-600'>Todo List</h1>
                 {/* form todo */}
                 <form onSubmit={(e) => {
@@ -93,9 +94,9 @@ const Todo = () => {
                     <ul className=' font-medium text-slate-600'>
                         {inputs.map(newInput => {
                             return (
-                                <div className='grid grid-cols-2 items-center py-1 px-40'>
+                                <div className='grid grid-cols-2 items-center py-1 px-44'>
                                     <li key={newInput.id}>{newInput.newInput}</li>
-                                    <div className='md:pl-20 lg:pr-28 xl:pr-16  grid grid-cols-2 gap-3'>
+                                    <div className='md:pl-20 lg:pr-28 xl:pr-[50px]  grid grid-cols-2 gap-3'>
                                         <button
                                             type="button"
                                             className='p-[11px] bg-[#55a8a3] text-slate-100 font-semibold rounded-md hover:bg-[#96b6b5]'
@@ -116,6 +117,7 @@ const Todo = () => {
                         })}
                     </ul>
                 </div>
+            </div>
             </div>
 
 
