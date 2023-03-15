@@ -60,7 +60,7 @@ const RegisterItem = (props) => {
                 <div className='px-10 flex items-center'>
                     <img src={require("../img/icon6.jpg")} alt="" className='hidden md:block rounded-2xl md:w-[43rem]' />
                 </div>
-
+                
             </div>
             {/* screen dalam */}
         </div>
