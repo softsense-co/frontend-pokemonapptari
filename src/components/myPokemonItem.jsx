@@ -53,20 +53,20 @@ const MyPokemonItem = () => {
                                 </p>
                             </div>
                             <div className='text-right pr-3'>
-                                <label htmlFor="modal" className="btn btn-sm border-0  bg-[#55a8a3] text-slate-700 font-medium text-sm uppercase rounded-md hover:bg-[#bfdfde]"><FaMinus /></label>
-                                <input type="checkbox" id="modal" className="modal-toggle" />
+                                <label htmlFor={"modal" + pokemon.id} className="btn btn-sm border-0  bg-[#55a8a3] text-slate-700 font-medium text-sm uppercase rounded-md hover:bg-[#bfdfde]"><FaMinus /></label>
+                                <input type="checkbox" id={"modal" + pokemon.id} className="modal-toggle" />
                                 <div className="modal modal-bottom sm:modal-middle">
                                     <div className="modal-box text-left">
                                         <h3 className="font-semibold text-slate-600 text-base">Delete pokedex from My pokemon ?</h3>
                                         {/* <p className="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p> */}
                                         <div className="modal-action">
-                                            <label htmlFor="modal" className="btn btn-sm">Cancel</label>
-                                            <label htmlFor="modal" className="btn btn-sm btn-accent" onClick={() => deleteMyPokemon(pokemon.id)}>Delete</label>
+                                            <label htmlFor={"modal" + pokemon.id} className="btn btn-sm">Cancel</label>
+                                            <label htmlFor={"modal" + pokemon.id} className="btn btn-sm btn-accent" onClick={() => deleteMyPokemon(pokemon.id)}>Delete</label>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <ToastContainer hideProgressBar={true} />
+                            <ToastContainer />
                         </div>
                     );
                 })}
