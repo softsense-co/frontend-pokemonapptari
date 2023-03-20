@@ -41,17 +41,17 @@ function Home() {
             {/* right side */}
             <div className="images relative w-[60%] ">
                 <img
-                    src={require("../img/pikachu.png")}
+                    src="/img/pikachu.png"
                     alt=""
                     className="absolute -top-60 left-[5rem] h-[30rem]"
                 />
                 <img
-                    src={require("../img/Jigglypuff.png")}
+                    src="/img/Jigglypuff.png"
                     alt=""
                     className="absolute -top-60   left-[40rem] h-60"
                 />
                 <img
-                    src={require("../img/wartortle.png")}
+                    src="/img/wartortle.png"
                     alt=""
                     className="absolute -top-20 left-[30rem] h-[23rem]"
                 />

@@ -18,13 +18,16 @@ function Header() {
                         <Link to="/">Home</Link>
                     </li>
                     <li className=" mr-12 text-slate-700 hover:text-white">
-                        <Link to="/Pokemon">Pokemons</Link>
+                        <Link to="/Pokemons">Pokemons</Link>
                     </li>
                     <li className=" mr-12 text-slate-700 hover:text-white">
                         <Link to="/MyPokemons">My Pokemons</Link>
                     </li>
                     <li className=" mr-12 text-slate-700 hover:text-white">
-                        <Link to="/Todo">Todo</Link>
+                        <Link to="/Todos">Todo</Link>
+                    </li>
+                    <li className=" mr-12 text-slate-700 hover:text-white">
+                        <Link to="/Users">User</Link>
                     </li>
                    
                 </ul>
