@@ -5,8 +5,8 @@ import MyPokemon from '../../components/pageGroups/dashboard/MyPokemon'
 const MyPokemons = () => {
   return (
     <div>
-    <Header />
-    <MyPokemon />
+      <Header />
+      <MyPokemon />
     </div>
   )
 }
