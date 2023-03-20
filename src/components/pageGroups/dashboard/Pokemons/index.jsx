@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const IndexPokemon = () => {
-    
+
     const pokemonData = [
         {
             id: "1",
@@ -91,6 +91,8 @@ const IndexPokemon = () => {
         },
     ]
 
+    const [pokemonAdd, setPokemonAdd] = useState(null);
+
     const addPokemons = (item) => {
         const myPokemonslocalstorage = localStorage.getItem('pokemonData')
         console.log(myPokemonslocalstorage)
@@ -107,6 +109,8 @@ const IndexPokemon = () => {
         toast.success("Add data, Success!!", {
             autoClose: 2500
         });
+
+        setPokemonAdd(null);
 
         // Cara Local Storage Kedua :
         // const myPokemons = JSON.parse(localStorage.getItem('pokemonData') || "[]");
@@ -136,7 +140,7 @@ const IndexPokemon = () => {
                             </div>
                             <div className='text-right pr-3'>
                                 {/* The button to open modal */}
-                                <label htmlFor={"modal" + pokemon.id} className="btn btn-sm border-0  bg-[#55a8a3] text-slate-700 font-medium text-sm uppercase rounded-md hover:bg-[#bfdfde]">Add</label>
+                                {/* <label htmlFor={"modal" + pokemon.id} className="btn btn-sm border-0  bg-[#55a8a3] text-slate-700 font-medium text-sm uppercase rounded-md hover:bg-[#bfdfde]">Add</label>
                                 <input type="checkbox" id={"modal" + pokemon.id} className="modal-toggle" />
                                 <div className="modal modal-bottom sm:modal-middle">
                                     <div className="modal-box text-left">
@@ -147,12 +151,29 @@ const IndexPokemon = () => {
 
                                         </div>
                                     </div>
-                                </div>
+                                </div> */}
+                                <button
+                                    onClick={() => setPokemonAdd(pokemon)}
+                                    className="btn btn-sm border-0  bg-[#55a8a3] text-slate-700 font-medium text-sm uppercase rounded-md hover:bg-[#bfdfde]">
+                                    Add
+                                </button>
                             </div>
                             <ToastContainer />
                         </div>
                     );
                 })}
+
+                <input type="checkbox" checked={pokemonAdd !== null} className="modal-toggle" />
+                <div className="modal modal-bottom sm:modal-middle">
+                    <div className="modal-box text-left">
+                        <h3 className="font-semibold text-slate-600 text-base">Add {pokemonAdd?.name} to My Pokemon ?</h3>
+                        <div className="modal-action">
+                            <button className="btn btn-sm" onClick={() => setPokemonAdd(null)}>Cancel</button>
+                            <button className="btn btn-sm btn-accent" onClick={() => addPokemons(pokemonAdd)}>Yes !</button>
+
+                        </div>
+                    </div>
+                </div>
 
             </div>
         </div>
