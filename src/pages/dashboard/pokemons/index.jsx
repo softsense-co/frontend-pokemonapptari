@@ -1,15 +1,15 @@
 import React from 'react'
 import Header from '../../../components/header'
-import IndexPokemon from '../../../components/pageGroups/dashboard/Pokemons'
+import Index from '../../../components/pageGroups/dashboard/Pokemons'
 
 
-const Index = () => {
+const IndexPokemon = () => {
   return (
     <div>
         <Header />
-        <IndexPokemon />
+        <Index />
     </div>
   )
 }
 
-export default Index
+export default IndexPokemon
