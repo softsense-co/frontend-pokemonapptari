@@ -3,10 +3,10 @@ import { FaMinus } from "react-icons/fa";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
 const MyPokemon = () => {
 
     const [pokemonDatas, setPokemonData] = useState([]);
+    const [pokemonDelete, setPokemonDelete] = useState(null);
 
     const handleGetPokemonData = () => {
         const dataFromStorage = localStorage.getItem("pokemonData");
@@ -31,6 +31,8 @@ const MyPokemon = () => {
         toast.info("Delete data, Success!!", {
             autoClose: 2500
         });
+
+        setPokemonDelete(null);
     }
 
 
@@ -39,7 +41,7 @@ const MyPokemon = () => {
             <img src="/img/hero2.png" alt="" className='lg:w-[200px] w-[150px] mx-auto' />
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 py-8 gap-4 sm:gap-10 lg:gap-10">
 
-                {/* From Storage */}
+                {/* Data From Storage */}
                 {pokemonDatas.map(pokemon => {
                     return (
                         <div className='bg-white/75 p-4 rounded-3xl' key={pokemon.id}>
@@ -54,27 +56,30 @@ const MyPokemon = () => {
                                 </p>
                             </div>
                             <div className='text-right pr-3'>
-                                <label htmlFor={"modal" + pokemon.id} className="btn btn-sm border-0  bg-[#55a8a3] text-slate-700 font-medium text-sm uppercase rounded-md hover:bg-[#bfdfde]"><FaMinus /></label>
-                                <input type="checkbox" id={"modal" + pokemon.id} className="modal-toggle" />
-                                <div className="modal modal-bottom sm:modal-middle">
-                                    <div className="modal-box text-left">
-                                        <h3 className="font-semibold text-slate-600 text-base">Delete pokedex from My pokemon ?</h3>
-                                        {/* <p className="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p> */}
-                                        <div className="modal-action">
-                                            <label htmlFor={"modal" + pokemon.id} className="btn btn-sm">Cancel</label>
-                                            <label htmlFor={"modal" + pokemon.id} className="btn btn-sm btn-accent" onClick={() => deleteMyPokemon(pokemon.id)}>Delete</label>
-                                        </div>
-                                    </div>
-                                </div>
+                                <button
+                                    onClick={() => setPokemonDelete(pokemon)}
+                                    className="btn btn-sm border-0  bg-[#55a8a3] text-slate-700 font-medium text-sm uppercase rounded-md hover:bg-[#bfdfde]">
+                                    <FaMinus />
+                                </button>
                             </div>
                             <ToastContainer />
                         </div>
                     );
                 })}
 
+                <input type="checkbox" checked={pokemonDelete !== null} className="modal-toggle" />
+                <div className="modal modal-bottom sm:modal-middle">
+                    <div className="modal-box text-left">
+                        <h3 className="font-semibold text-slate-600 text-base">Delete {pokemonDelete?.name} from My pokemon ?</h3>
+                        {/* <p className="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p> */}
+                        <div className="modal-action">
+                            <button className="btn btn-sm" onClick={() => setPokemonDelete(null)}>Cancel</button>
+                            <button className="btn btn-sm btn-accent" onClick={() => deleteMyPokemon(pokemonDelete.id)}>Delete</button>
+                        </div>
+                    </div>
+                </div>
 
             </div>
-
         </div>
     )
 }
