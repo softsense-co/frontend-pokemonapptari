@@ -8,6 +8,7 @@ import Todos from '../pages/dashboard/todos';
 import SignIns from '../pages/auth/signins';
 import SignUps from '../pages/auth/signups';
 import MyPokemons from '../pages/dashboard/my-pokemons';
+import IndexUser from '../services/users';
 
 function IndexRouter() {
   return (
@@ -18,6 +19,8 @@ function IndexRouter() {
             <Route path='/Pokemons' element={<IndexPokemon />} /> 
             <Route path='/IdDetailPokemon' element={<IdPokemon />} />
             <Route path='/MyPokemons' element={<MyPokemons />} />
+
+            <Route path='/Users' element={<IndexUser />} />
 
             <Route path='/SignIn' element={<SignIns />} />
             <Route path='/SignUp' element={<SignUps />} />
