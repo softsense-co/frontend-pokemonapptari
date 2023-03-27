@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -27,7 +29,9 @@ const SignIn = () => {
                 navigate('/');
             })
             .catch((error) => {
-                console.log(error);
+                toast.error("Please add a valid data", {
+                    autoClose: 2500
+                });
             });
     }
 
@@ -73,7 +77,7 @@ const SignIn = () => {
 
                         </div>
                     </form>
-
+                    <ToastContainer />
 
 
                 </div>
