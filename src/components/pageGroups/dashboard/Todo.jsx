@@ -62,7 +62,6 @@ const Todo = () => {
 
     return (
         <div>
-            <div className='pb-96'>
             <div className='bg-white/50 my-10 py-3 rounded-3xl shadow-2xl max-w-md mx-auto sm:max-w-lg md:max-w-2xl lg:max-w-4xl xl:max-w-[50rem]'>
                 <h1 className='text-3xl font-extrabold text-center py-8 text-slate-600'>Todo List</h1>
                 {/* form todo */}
@@ -86,7 +85,7 @@ const Todo = () => {
 
                     </div>
                 </form>
-               
+
                 <div className='py-5'>
                     <ul className=' font-medium text-slate-600'>
                         {inputs.map(newInput => {
@@ -115,7 +114,7 @@ const Todo = () => {
                     </ul>
                 </div>
             </div>
-            </div>
+
 
 
         </div>

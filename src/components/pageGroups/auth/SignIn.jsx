@@ -1,18 +1,36 @@
 import React, { useState } from 'react'
 import { Link } from "react-router-dom";
-import { FaArrowRight } from "react-icons/fa";
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 
-const SignIn = (props) => {
-    const [email, setEmail] = useState('');
-    const [pass, setPass] = useState('');
+
+const SignIn = () => {
+
+    let navigate = useNavigate();
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
+    const handleEmailChange = (e) => {
+        setEmail(e.target.value);
+    };
+
+    const handlePasswordChange = (e) => {
+        setPassword(e.target.value);
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(email);
+        axios.post('https://reqres.in/api/login', { email, password })
+            .then((response) => {
+                console.log(response);
+                navigate('/');
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     }
 
-    const buttonStyle = 'bg-[#b1ced8] rounded-xl  py-[5px]'
 
     return (
         // screen
@@ -26,36 +44,36 @@ const SignIn = (props) => {
                     <form onSubmit={handleSubmit}>
                         <div>
                             <label htmlFor='email' className='text-sm font-medium text-slate-600'>Email</label>
-                            <input value={email} onChange={(e) => setEmail(e.target.value)}
+                            <input value={email} onChange={handleEmailChange}
                                 type='email' id='email' name='email'
                                 className='w-full border-2 border-gray-100 rounded-xl p-2 mt-1'
                                 placeholder='emailaddres@gmail.com' />
                         </div>
                         <div className='pt-3'>
                             <label htmlFor='password' className='text-sm font-medium text-slate-600'>Password</label>
-                            <input value={pass} onChange={(e) => setPass(e.target.value)}
+                            <input value={password} onChange={handlePasswordChange}
                                 type='password' id='password' name='password'
                                 className='w-full border-2 border-gray-100 rounded-xl p-2 mt-1'
-                                placeholder='**********' />
+                                placeholder='********' />
+                        </div>
+                        <button className='pt-2 font-medium text-xs text-[#70928e] hover:text-[#5f6060]'>Forgot Password</button>
+
+                        {/* BUTTON */}
+                        <div className='flex flex-col gap-y-4 py-10'>
+                            <button type='submit'
+                                className="bg-[#b1ced8] rounded-xl  py-[5px] mr-2 hover:bg-[#deedec] text-slate-600 font-semibold" >
+                                Sign In
+                            </button>
+                            <Link to="/SignUp">
+                                <button className='font-semibold text-xs text-[#83a9a5] hover:text-[#5f6060]'>
+                                    Don't have an account?
+                                    <span className='font-extrabold'>Sign Up</span>
+                                </button>
+                            </Link>
+
                         </div>
                     </form>
-                    <button className='pt-2 font-medium text-xs text-[#70928e] hover:text-[#5f6060]'>Forgot Password</button>
 
-                    {/* BUTTON */}
-                    <div className='flex flex-col gap-y-4 py-10'>
-                        <button className={buttonStyle + ` mr-2 hover:bg-[#deedec] text-slate-600 font-semibold`}>Sign In</button>
-                        <Link to="/SignUp">
-                            <button
-                                className='font-semibold text-xs text-[#83a9a5] hover:text-[#5f6060]'
-                                onClick={() => props.onFormSwitch('register')}>Don't have an account? <span className='font-extrabold'>Sign Up</span></button>
-                        </Link>
-                        <Link to="/">
-                            <div className='flex items-center pt-10 font-extrabold text-xs text-[#83a9a5] hover:text-[#5f6060]'>
-                                Back To Home
-                                <FaArrowRight />
-                            </div>
-                        </Link>
-                    </div>
 
 
                 </div>

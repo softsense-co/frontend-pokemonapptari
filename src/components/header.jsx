@@ -37,7 +37,7 @@ function Header() {
             <div className="buttons text-slate-700 font-medium ">
                 <Link to="/SignIn">
                     <button className={buttonStyle + ` mr-2 hover:bg-[#deedec]`}>
-                        Sign In
+                        Logout
                     </button>
                 </Link>
 

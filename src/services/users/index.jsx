@@ -16,19 +16,27 @@ const IndexUser = () => {
 
     const arrUser = user.map((data) => {
         return (
-            <p key={data.id}>
-              {data?.first_name} {data?.last_name};
-            </p>
-          );
+            <div>
+                <p className='py-1' key={data.id}>
+                    {data?.first_name} {data?.last_name}
+                </p>
+            </div>
+
+        );
     })
 
     return (
         <div>
             <Header />
-            <h1>Users</h1>
-            {arrUser}
+            <div>
+                <div className='bg-white/50 my-10 py-3 rounded-3xl shadow-2xl max-w-md mx-auto sm:max-w-lg md:max-w-2xl'>
+                    <h1 className='text-3xl font-extrabold text-center py-5 text-slate-600'>Users</h1>
+                    <p className='mx-16 pb-7'>
+                        {arrUser}
+                    </p>
 
-
+                </div>
+            </div>
         </div>
     )
 }
