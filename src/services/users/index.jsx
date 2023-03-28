@@ -16,10 +16,12 @@ const IndexUser = () => {
 
     const arrUser = user.map((data) => {
         return (
-            <div>
-                <p className='py-1' key={data.id}>
+            <div key={data.id} className='flex flex-col items-center'>
+                <p className='pb-1 font-semibold' >
                     {data?.first_name} {data?.last_name}
                 </p>
+                <img alt='' key={data?.avatar} src={data?.avatar} />
+                <p className='pt-2'>{data?.email}</p>
             </div>
 
         );
@@ -29,11 +31,14 @@ const IndexUser = () => {
         <div>
             <Header />
             <div>
-                <div className='bg-white/50 my-10 py-3 rounded-3xl shadow-2xl max-w-md mx-auto sm:max-w-lg md:max-w-2xl'>
+                <div className='bg-white/50 my-10 rounded-3xl shadow-2xl max-w-md mx-auto sm:max-w-lg md:max-w-2xl lg:max-w-4xl'>
                     <h1 className='text-3xl font-extrabold text-center py-5 text-slate-600'>Users</h1>
-                    <p className='mx-16 pb-7'>
-                        {arrUser}
-                    </p>
+                    <div >
+                        <div className='grid grid-cols-3 gap-7 py-10 px-8'>
+                            {arrUser}
+                        </div>
+
+                    </div>
 
                 </div>
             </div>
