@@ -1,14 +1,14 @@
 import React from 'react'
 import Header from '../../../components/header'
-import IdDetailPokemon from '../../../components/pageGroups/dashboard/Pokemons/[id]'
+import DetailPokemon from '../../../components/pageGroups/dashboard/Pokemons/[id]'
 
-const IdPokemon = () => {
+const DetailPokemons = () => {
   return (
     <div>
         <Header />
-        <IdDetailPokemon />
+        <DetailPokemon />
     </div>
   )
 }
 
-export default IdPokemon
+export default DetailPokemons
