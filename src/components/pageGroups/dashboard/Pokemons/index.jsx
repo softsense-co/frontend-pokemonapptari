@@ -4,7 +4,7 @@ import { FaPlus } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 
-const Index = () => {
+const Index = (id, name) => {
 
     let navigate = useNavigate();
     const [pokemonData, setPokemons] = useState([]);
@@ -43,7 +43,7 @@ const Index = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 py-8 gap-4 sm:gap-10 lg:gap-10">
 
                 {/* Looping Data List */}
-                {Array.from(pokemonData || []).map((item, index, id, name) => {
+                {Array.from(pokemonData || []).map((item, index) => {
                     return (
                         <div key={index} id={item?.id}
                             
