@@ -6,7 +6,7 @@ import { getPokemonName } from '../../../../services/pokemons'
 const DetailPokemon = () => {
 
     const params = useParams();
-    const [pokemonData, setPokemonData] = useState(null);
+    const [pokemonData, setPokemons] = useState(null);
 
     useEffect(() => {
         if (params?.id) {
@@ -24,7 +24,7 @@ const DetailPokemon = () => {
                 img:
                     payloadDetail?.data?.sprites?.other?.dream_world?.front_default || "",
             };
-            setPokemonData(result);
+            setPokemons(result);
         } catch (error) {
             console.log(error, "error");
         }

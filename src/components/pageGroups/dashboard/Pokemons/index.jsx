@@ -4,8 +4,7 @@ import { FaPlus } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 
-const Index = (id, name) => {
-
+function Index(id, name) {
     let navigate = useNavigate();
     const [pokemonData, setPokemons] = useState([]);
 
@@ -48,7 +47,7 @@ const Index = (id, name) => {
                         <div key={index} id={item?.id}
                             
                             className='bg-white/75 p-4 rounded-3xl'>
-                            <img src={item?.img} alt="" onClick = {() => navigate(`/pokemons/${id}?name=${name}`)} className='h-52 mx-auto' />
+                            <img src={item?.img} alt="" onClick = {() => navigate(`/pokemons/${item.id}`)} className='h-52 mx-auto' />
                             <h4 className='text-slate-700 text-base md:text-lg font-semibold py-3  text-center uppercase'>{item?.name}</h4>
                             <div className='text-sm md:text-sm text-left pl-3'>
                                 <p className='text-slate-600'>

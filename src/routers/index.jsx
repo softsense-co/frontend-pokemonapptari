@@ -16,8 +16,8 @@ function IndexRouter() {
         <Routes>
             <Route path='/' element={<Hero />}/>
             <Route path='/Todos' element={<Todos />} />
-            <Route path='/Pokemons' element={<IndexPokemon />} /> 
-            <Route path='/DetailPokemon' element={<DetailPokemons />} />
+            <Route path='/pokemons' element={<IndexPokemon />} /> 
+            <Route path='/pokemons/:id' element={<DetailPokemons />} />
             <Route path='/MyPokemons' element={<MyPokemons />} />
 
             <Route path='/Users' element={<IndexUser />} />
