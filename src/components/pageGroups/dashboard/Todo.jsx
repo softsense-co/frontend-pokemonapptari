@@ -63,14 +63,14 @@ const Todo = () => {
     return (
         <div>
             <div className='bg-white/50 my-10 py-3 rounded-3xl shadow-2xl max-w-md mx-auto sm:max-w-lg md:max-w-2xl lg:max-w-4xl xl:max-w-[50rem]'>
-                <h1 className='text-3xl font-extrabold text-center py-8 text-slate-600'>Todo List</h1>
+                <h1 className='text-2xl lg:text-3xl font-extrabold text-center py-8 text-slate-600'>Todo List</h1>
                 {/* form todo */}
                 <form onSubmit={(e) => {
                     e.preventDefault()
                     addList()
                 }}>
                     <div className='flex justify-center items-center'>
-                        <input type="text" className='w-[350px] rounded-lg p-2 mt-1'
+                        <input type="text" className='w-[250px] sm:w-[300px] md:w-[350px] rounded-lg p-2 mt-1'
                             value={newInput}
                             onChange={e => setNewInput(e.target.value)} />
 
@@ -90,9 +90,9 @@ const Todo = () => {
                     <ul className=' font-medium text-slate-600'>
                         {inputs.map(newInput => {
                             return (
-                                <div className='grid grid-cols-2 items-center py-1 px-44'>
+                                <div className='grid grid-cols-2 items-center py-1 px-[60px] md:px-28 lg:px-44'>
                                     <li key={newInput.id}>{newInput.newInput}</li>
-                                    <div className='md:pl-20 lg:pr-28 xl:pr-[50px]  grid grid-cols-2 gap-3'>
+                                    <div className='pl-8 pr-10 md:pl-12 md:pr-20 lg:pr-28 xl:pr-[50px]  grid grid-cols-2 gap-3'>
                                         <button
                                             type="button"
                                             className='p-[11px] bg-[#55a8a3] text-slate-100 font-semibold rounded-md hover:bg-[#96b6b5]'
@@ -114,10 +114,9 @@ const Todo = () => {
                     </ul>
                 </div>
             </div>
-
-
-
         </div>
+
+        
     )
 }
 

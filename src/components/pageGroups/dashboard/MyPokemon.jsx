@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react'
 import { FaMinus } from "react-icons/fa";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 
 const MyPokemon = () => {
 
+    let navigate = useNavigate();
     const [pokemonDatas, setPokemonData] = useState([]);
     const [pokemonDelete, setPokemonDelete] = useState(null);
 
@@ -42,22 +44,23 @@ const MyPokemon = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 py-8 gap-4 sm:gap-10 lg:gap-10">
 
                 {/* Data From Storage */}
-                {pokemonDatas.map(pokemon => {
+                {Array.from(pokemonDatas || []).map((item, index) => {
                     return (
-                        <div className='bg-white/75 p-4 rounded-3xl' key={pokemon.id}>
-                            <img src={pokemon.image} alt="" className='h-52 mx-auto' />
-                            <h5 className='text-slate-700 text-base md:text-lg font-semibold py-3  text-center uppercase'>{pokemon.name}</h5>
-                            <div className='text-sm md:text-base pb-2 text-left pl-3'>
+                        <div key={index} id={item?.id}
+                            className='bg-white/75 p-4 rounded-3xl'>
+                            <img src={item?.img} alt="" onClick={() => navigate(`/pokemons/${item.id}`)} className='h-52 mx-auto' />
+                            <h4 className='text-slate-700 text-base md:text-lg font-semibold py-3  text-center uppercase'>{item?.name}</h4>
+                            <div className='text-sm md:text-sm text-left pl-3'>
                                 <p className='text-slate-600'>
                                     Price
                                 </p>
                                 <p className='text-slate-600 font-bold'>
-                                    {pokemon.price}
+                                    $ 35
                                 </p>
                             </div>
-                            <div className='text-right pr-3'>
+                            <div className='text-right'>
                                 <button
-                                    onClick={() => setPokemonDelete(pokemon)}
+                                    onClick={() => setPokemonDelete(item)}
                                     className="btn btn-sm border-0  bg-[#55a8a3] text-slate-700 font-medium text-sm uppercase rounded-md hover:bg-[#bfdfde]">
                                     <FaMinus />
                                 </button>
@@ -65,6 +68,7 @@ const MyPokemon = () => {
                             <ToastContainer />
                         </div>
                     );
+
                 })}
 
                 <input type="checkbox" checked={pokemonDelete !== null} className="modal-toggle" />

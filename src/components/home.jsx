@@ -2,19 +2,19 @@ import React from 'react'
 
 function Home() {
 
-    const downloadImgStyle = 'border-[1px] border-[#232A4E] rounded-[13px] h-[3rem] w-[10rem]'
+    const downloadImgStyle = 'border-[1px] border-[#232A4E] rounded-[13px] lg:h-[3rem] h-[2rem] w-[7rem] lg:w-[10rem]'
 
     return (
-        <div className="wrapper lg:flex items-center justify-between px-40  w-[100%] h-[850px]  z-[3]">
+        <div className="wrapper lg:flex items-center justify-between px-20 lg:px-40  w-[100%] h-[300px] lg:h-[850px] z-[3]">
             {/* left side */}
-            <div className="heading flex flex-col items-start justify-center text-slate-700 h-[100%] text-[3rem]">
+            <div className="heading flex flex-col items-start justify-center text-slate-700 h-[100%] text-[1.5rem] lg:text-[3rem]">
                 <span>Experience The</span>
                 <span>
                     <b>Best Quality Game</b>
                 </span>
-                <span className="text-[15px] text-slate-600 text-left">
+                <span className="text-[15px] py-4 text-slate-600 text-left">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    <br />
+                    <br className='hidden md:block' />
                     Lorem, ipsum dolor sit amet consectetur
                 </span>
 
@@ -26,7 +26,7 @@ function Home() {
                             <img
                                 src={require("../img/App Store.png")}
                                 alt=""
-                                className={downloadImgStyle + ` mr-5`}
+                                className={downloadImgStyle + ` mr-5` }
                             />
                             <img
                                 src={require("../img/Google Play.png")}
