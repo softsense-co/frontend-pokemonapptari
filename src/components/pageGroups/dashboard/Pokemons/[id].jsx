@@ -87,17 +87,15 @@ const DetailPokemon = () => {
 
             <input type="checkbox" checked={pokemonAdd !== null} className="modal-toggle" />
             <div className="modal modal-bottom sm:modal-middle">
-                <div className="modal-box text-left">
-                    <h3 className="font-semibold text-slate-600 text-base">Add {pokemonAdd?.name} to My Pokemon ?</h3>
+                <div className="modal-box text-left bg-slate-800">
+                    <h3 className="font-semibold text-white text-base">Add {pokemonAdd?.name} to My Pokemon ?</h3>
                     <div className="modal-action">
-                        <button className="btn btn-sm" onClick={() => setPokemonAdd(null)}>Cancel</button>
+                        <button className="btn btn-sm bg-slate-600" onClick={() => setPokemonAdd(null)}>Cancel</button>
                         <button className="btn btn-sm btn-accent" onClick={() => addPokemons(pokemonAdd)}>Yes !</button>
 
                     </div>
                 </div>
             </div>
-
-            <h1 className="text-3xl font-extrabold text-slate-600 py-10 px-36">More Pokemons</h1>
         </div>
     )
 

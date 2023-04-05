@@ -73,11 +73,10 @@ const MyPokemon = () => {
 
                 <input type="checkbox" checked={pokemonDelete !== null} className="modal-toggle" />
                 <div className="modal modal-bottom sm:modal-middle">
-                    <div className="modal-box text-left">
-                        <h3 className="font-semibold text-slate-600 text-base">Delete {pokemonDelete?.name} from My pokemon ?</h3>
-                        {/* <p className="py-4">You've been selected for a chance to get one year of subscription to use Wikipedia for free!</p> */}
+                    <div className="modal-box text-left bg-slate-800">
+                        <h3 className="font-semibold text-white text-base">Delete {pokemonDelete?.name} from My pokemon ?</h3>
                         <div className="modal-action">
-                            <button className="btn btn-sm" onClick={() => setPokemonDelete(null)}>Cancel</button>
+                            <button className="btn btn-sm bg-slate-600" onClick={() => setPokemonDelete(null)}>Cancel</button>
                             <button className="btn btn-sm btn-accent" onClick={() => deleteMyPokemon(pokemonDelete.id)}>Delete</button>
                         </div>
                     </div>

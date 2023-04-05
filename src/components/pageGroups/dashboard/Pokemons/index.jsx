@@ -40,7 +40,6 @@ function Index() {
 
     const addPokemons = (item) => {
         const myPokemonslocalstorage = localStorage.getItem('pokemonData')
-        console.log(myPokemonslocalstorage)
         if (myPokemonslocalstorage) {
             const myPokemons = JSON.parse(myPokemonslocalstorage);
             const newMyPokemons = [...myPokemons, { id: item.id, name: item.name, img: item.img }];
@@ -58,6 +57,9 @@ function Index() {
 
 
 
+
+
+
     return (
         <div className="flex flex-col justify-start px-[5rem] py-8 relative">
             <h1 className='text-3xl font-bold text-slate-700 py-3'>Pokemons</h1>
@@ -65,6 +67,9 @@ function Index() {
 
                 {/* Looping Data List */}
                 {Array.from(pokemonData || []).map((item, index) => {
+                    const myPokemonslocalstorage = localStorage.getItem('pokemonData');
+                    const myPokemons = JSON.parse(myPokemonslocalstorage) || [];
+                    const isAlreadyAdd = myPokemons.find(poke => poke.id === item.id) !== undefined;
                     return (
                         <div key={index} id={item?.id}
                             className='bg-white/75 p-4 rounded-3xl'>
@@ -79,11 +84,18 @@ function Index() {
                                 </p>
                             </div>
                             <div className='text-right'>
-                                <button
-                                    onClick={() => setPokemonAdd(item)}
-                                    className="btn btn-sm border-0  bg-[#55a8a3] text-slate-700 font-medium text-sm uppercase rounded-md hover:bg-[#bfdfde]">
-                                    <FaPlus />
-                                </button>
+
+                                
+                                {isAlreadyAdd ? (
+                                    <span></span>
+                                ) : (
+                                    <button
+                                        onClick={() => setPokemonAdd(item)}
+                                        className="btn btn-sm border-0  bg-[#55a8a3] text-slate-700 font-medium text-sm uppercase rounded-md hover:bg-[#bfdfde]">
+                                        <FaPlus />
+                                    </button>
+                                )}
+
                             </div>
                             <ToastContainer />
                         </div>
@@ -91,12 +103,12 @@ function Index() {
 
                 })}
 
-                <input type="checkbox" checked={pokemonAdd !== null} className="modal-toggle" />
+                <input type="checkbox" checked={pokemonAdd !== null} className="modal-toggle " />
                 <div className="modal modal-bottom sm:modal-middle">
-                    <div className="modal-box text-left">
-                        <h3 className="font-semibold text-slate-600 text-base">Add {pokemonAdd?.name} to My Pokemon ?</h3>
+                    <div className="modal-box text-left bg-slate-800">
+                        <h3 className="font-semibold text-white text-base ">Add {pokemonAdd?.name} to My Pokemon ?</h3>
                         <div className="modal-action">
-                            <button className="btn btn-sm" onClick={() => setPokemonAdd(null)}>Cancel</button>
+                            <button className="btn btn-sm bg-slate-600" onClick={() => setPokemonAdd(null)}>Cancel</button>
                             <button className="btn btn-sm btn-accent" onClick={() => addPokemons(pokemonAdd)}>Yes !</button>
 
                         </div>
