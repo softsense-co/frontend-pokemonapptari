@@ -1,6 +1,6 @@
 import React from 'react'
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { isLoggedIn } from '../services/auth';
 import Hero from '../pages/hero';
 import IndexPokemon from '../pages/dashboard/pokemons/index';
 import Todos from '../pages/dashboard/todos';
@@ -16,13 +16,13 @@ function IndexRouter() {
         <Routes>
             <Route path='/' element={<Hero />}/>
             <Route path='/Todos' element={<Todos />} />
-            <Route path='/pokemons' element={<IndexPokemon />} /> 
-            <Route path='/pokemons/:id' element={<DetailPokemons />} />
-            <Route path='/MyPokemons' element={<MyPokemons />} />
-
             <Route path='/Users' element={<IndexUser />} />
 
-            <Route path='/SignIn' element={<SignIns />} />
+            <Route path="/Pokemons" element={isLoggedIn() ? <IndexPokemon /> : <Navigate to="/Login" />} />
+            <Route path="/MyPokemons" element={isLoggedIn() ? <MyPokemons /> : <Navigate to="/Login" />} />
+            <Route path='/pokemons/:id' element={<DetailPokemons />} />
+
+            <Route path="/Login" element={!!isLoggedIn() ? <Navigate to="/" /> : <SignIns />} />
             <Route path='/SignUp' element={<SignUps />} />
         </Routes>
     </Router>
