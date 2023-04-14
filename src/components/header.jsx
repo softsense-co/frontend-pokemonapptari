@@ -9,7 +9,8 @@ function Header() {
     const navigate = useNavigate();
 
     function handleOnClick() {
-        navigate('/Login');
+        localStorage.removeItem("authToken");
+        window.location.href = "/Login"
     }
 
     function handleCancel() {

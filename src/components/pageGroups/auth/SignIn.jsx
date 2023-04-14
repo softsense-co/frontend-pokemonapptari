@@ -25,8 +25,9 @@ const SignIn = () => {
         e.preventDefault();
         axios.post('https://reqres.in/api/login', { email, password })
             .then((response) => {
+                localStorage.setItem("authToken", true);
                 console.log(response);
-                navigate('/');
+                window.location.href = "/"
             })
             .catch((error) => {
                 toast.error("Please add a valid data", {
