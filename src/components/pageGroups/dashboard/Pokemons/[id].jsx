@@ -10,6 +10,16 @@ const DetailPokemon = () => {
     const params = useParams();
     const [pokemonData, setPokemons] = useState(null);
     const [pokemonAdd, setPokemonAdd] = useState(null);
+    const [isAdded, setIsAdded] = useState(false);
+
+    useEffect(() => {
+        const myPokemonslocalstorage = localStorage.getItem('pokemonData');
+        if (myPokemonslocalstorage) {
+            const myPokemons = JSON.parse(myPokemonslocalstorage);
+            const isAlreadyAdded = myPokemons.some((item) => item.id === pokemonData?.id);
+            setIsAdded(isAlreadyAdded);
+        }
+    }, [pokemonData]);
 
     useEffect(() => {
         if (params?.id) {
@@ -51,6 +61,7 @@ const DetailPokemon = () => {
         setPokemonAdd(null);
     }
 
+
     return (
         <div>
             <div className="bg-white/40 items-center mt-10 p-6 rounded-3xl max-w-md mx-auto sm:max-w-lg md:max-w-2xl grid lg:grid-cols-2 lg:max-w-5xl xl:max-w-[75rem]">
@@ -73,13 +84,15 @@ const DetailPokemon = () => {
                                 );
                             })}
                     </p>
-                    <div className="text-center pt-8 font-bold" >
-                        <button
-                            onClick={() => setPokemonAdd(pokemonData)}
-                            className="rounded-3xl bg-[#82b5b1] px-16 py-2 text-slate-800 uppercase hover:bg-[#afd1ce]" >
-                            Add To My Pokemon
-                        </button>
-                    </div>
+                    {isAdded ? null : (
+                        <div className="text-center pt-8 font-bold" >
+                            <button
+                                onClick={() => setPokemonAdd(pokemonData)}
+                                className="rounded-3xl bg-[#82b5b1] px-16 py-2 text-slate-800 uppercase hover:bg-[#afd1ce]" >
+                                Add To My Pokemon
+                            </button>
+                        </div>
+                    )}
                     <ToastContainer />
                 </div>
             </div>
