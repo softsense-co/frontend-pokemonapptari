@@ -20,6 +20,7 @@ const Todo = () => {
         }
 
     }
+
     // Local storage
     useEffect(() => {
         handleGetInput()
@@ -32,21 +33,17 @@ const Todo = () => {
 
     function addList() {
         if (newInput !== "") {
-            handleChangeInput([...inputs, { newInput, id: `${newInput}-${Date.now()}` }]);
-            setNewInput("")
+            if (editID) {
+                const editArray = inputs.find((input) => input.id === editID);
+                const updateArray = inputs.map((input) =>
+                    input.id === editArray.id ? input = { id: input.id, newInput } : { id: input.id, newInput: input.newInput });
+                handleChangeInput(updateArray);
+                setEditID(0);
+            } else {
+                handleChangeInput([...inputs, { newInput, id: `${newInput}-${Date.now()}`, isDone: false }]);
+            }
+            setNewInput("");
         }
-
-
-        if (editID) {
-            const editArray = inputs.find((input) => input.id === editID);
-            const updateArray = inputs.map((input) =>
-                input.id === editArray.id ? input = { id: input.id, newInput } : { id: input.id, newInput: input.newInput });
-            handleChangeInput(updateArray);
-            setEditID(0);
-            return;
-        }
-
-
     };
 
     function deleteList(id) {
@@ -60,6 +57,7 @@ const Todo = () => {
         setEditID(id);
     };
 
+    
     return (
         <div className='pt-16'>
             <div className='bg-white/50 py-3 rounded-3xl shadow-2xl max-w-md mx-auto sm:max-w-lg md:max-w-2xl lg:max-w-4xl xl:max-w-[50rem]'>
@@ -79,7 +77,7 @@ const Todo = () => {
                                 onClick={() => addList()}
                                 type="button"
                                 className='px-3 py-[10px] bg-[#8ebbb8] text-slate-800 font-semibold text-sm uppercase rounded-lg hover:bg-[#6ea4a2]'>
-                                Add
+                                {editID ? 'Update' : 'Add'}
                             </button>
                         </div>
 
