@@ -5,7 +5,6 @@ import { getPokemonName } from '../../../../services/pokemons'
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
 
-
 const DetailPokemon = () => {
 
     const params = useParams();
@@ -52,13 +51,13 @@ const DetailPokemon = () => {
         setPokemonAdd(null);
     }
 
-
-
     return (
         <div>
             <div className="bg-white/40 items-center mt-10 p-6 rounded-3xl max-w-md mx-auto sm:max-w-lg md:max-w-2xl grid lg:grid-cols-2 lg:max-w-5xl xl:max-w-[75rem]">
                 <div className="hidden lg:block px-5">
-                    <img src={pokemonData?.img} alt="event" className="w-[400px] xl:w-[450px] rounded-xl shadow-xl " />
+                    <img src={pokemonData?.img}
+                        alt="event"
+                        className="w-[400px] xl:w-[450px] rounded-xl shadow-xl " />
                 </div>
                 <div className="lg:py-10 ">
                     <h2 className="text-3xl font-semibold text-slate-700 md:pb-4 md:text-3xl lg:text-4xl">{pokemonData?.name}</h2>
@@ -96,6 +95,7 @@ const DetailPokemon = () => {
                     </div>
                 </div>
             </div>
+
         </div>
     )
 

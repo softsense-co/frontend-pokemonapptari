@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { Link } from "react-router-dom";
 
 const SignUp = () => {
+
+    const buttonStyle = 'bg-[#b1ced8] rounded-[8px]  py-1'
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
     const [name, setName] = useState('');
@@ -10,8 +12,6 @@ const SignUp = () => {
         e.preventDefault();
         console.log(email);
     }
-
-    const buttonStyle = 'bg-[#b1ced8] rounded-[8px]  py-1'
 
     return (
         // screen
@@ -59,7 +59,7 @@ const SignUp = () => {
                 <div className='px-10 flex items-center'>
                     <img src="/img/icon6.jpg" alt="" className='hidden md:block rounded-2xl md:w-[43rem]' />
                 </div>
-                
+
             </div>
             {/* screen dalam */}
         </div>

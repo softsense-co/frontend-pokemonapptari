@@ -37,11 +37,10 @@ const MyPokemon = () => {
         setPokemonDelete(null);
     }
 
-
     return (
-        <div className="flex flex-col justify-start px-[5rem] py-8 relative">
-            <img src="/img/hero2.png" alt="" className='lg:w-[200px] w-[150px] mx-auto' />
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 py-8 gap-4 sm:gap-10 lg:gap-10">
+        <div className="flex flex-col justify-start py-8 relative">
+            <h1 className='text-[24px] font-bold px-32 pt-5 text-slate-700'>My Pokemons</h1>
+            <div className="px-56 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 py-8 gap-4 sm:gap-9 lg:gap-7">
 
                 {/* Data From Storage */}
                 {Array.from(pokemonDatas || []).map((item, index) => {
@@ -50,14 +49,6 @@ const MyPokemon = () => {
                             className='bg-white/75 p-4 rounded-3xl'>
                             <img src={item?.img} alt="" onClick={() => navigate(`/pokemons/${item.id}`)} className='h-52 mx-auto' />
                             <h4 className='text-slate-700 text-base md:text-lg font-semibold py-3  text-center uppercase'>{item?.name}</h4>
-                            <div className='text-sm md:text-sm text-left pl-3'>
-                                <p className='text-slate-600'>
-                                    Price
-                                </p>
-                                <p className='text-slate-600 font-bold'>
-                                    $ 35
-                                </p>
-                            </div>
                             <div className='text-right'>
                                 <button
                                     onClick={() => setPokemonDelete(item)}

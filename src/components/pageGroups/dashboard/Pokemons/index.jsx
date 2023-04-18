@@ -5,7 +5,6 @@ import { useNavigate } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
 
-
 function Index() {
     let navigate = useNavigate();
     const [pokemonData, setPokemons] = useState([]);
@@ -55,15 +54,10 @@ function Index() {
         setPokemonAdd(null);
     }
 
-
-
-
-
-
     return (
-        <div className="flex flex-col justify-start px-[5rem] py-8 relative">
-            <h1 className='text-3xl font-bold text-slate-700 py-3'>Pokemons</h1>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 py-8 gap-4 sm:gap-10 lg:gap-10">
+        <div className="flex flex-col justify-start py-8 relative">
+            <h1 className='text-[28px] font-bold px-32 text-slate-700'>Pokemons</h1>
+            <div className="px-56 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 py-8 gap-4 sm:gap-9 lg:gap-7">
 
                 {/* Looping Data List */}
                 {Array.from(pokemonData || []).map((item, index) => {
@@ -72,26 +66,16 @@ function Index() {
                     const isAlreadyAdd = myPokemons.find(poke => poke.id === item.id) !== undefined;
                     return (
                         <div key={index} id={item?.id}
-                            className='bg-white/75 p-4 rounded-3xl'>
+                            className='bg-white/80 p-4 rounded-3xl'>
                             <img src={item?.img} alt="" onClick={() => navigate(`/pokemons/${item.id}`)} className='h-52 mx-auto' />
                             <h4 className='text-slate-700 text-base md:text-lg font-semibold py-3  text-center uppercase'>{item?.name}</h4>
-                            <div className='text-sm md:text-sm text-left pl-3'>
-                                <p className='text-slate-600'>
-                                    Price
-                                </p>
-                                <p className='text-slate-600 font-bold'>
-                                    $ 35
-                                </p>
-                            </div>
-                            <div className='text-right'>
-
-                                
+                            <div className='text-right'> 
                                 {isAlreadyAdd ? (
                                     <span></span>
                                 ) : (
                                     <button
                                         onClick={() => setPokemonAdd(item)}
-                                        className="btn btn-sm border-0  bg-[#55a8a3] text-slate-700 font-medium text-sm uppercase rounded-md hover:bg-[#bfdfde]">
+                                        className="btn btn-sm border-0  bg-[#55a8a3] text-slate-700 font-medium text-sm rounded-md hover:bg-[#bfdfde]">
                                         <FaPlus />
                                     </button>
                                 )}
@@ -108,7 +92,7 @@ function Index() {
                     <div className="modal-box text-left bg-slate-800">
                         <h3 className="font-semibold text-white text-base ">Add {pokemonAdd?.name} to My Pokemon ?</h3>
                         <div className="modal-action">
-                            <button className="btn btn-sm bg-slate-600" onClick={() => setPokemonAdd(null)}>Cancel</button>
+                            <button className="btn btn-sm bg-slate-500" onClick={() => setPokemonAdd(null)}>Cancel</button>
                             <button className="btn btn-sm btn-accent" onClick={() => addPokemons(pokemonAdd)}>Yes !</button>
 
                         </div>

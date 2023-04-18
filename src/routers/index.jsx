@@ -2,13 +2,17 @@ import React from 'react'
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { isLoggedIn } from '../services/auth';
 import Hero from '../pages/hero';
+
 import IndexPokemon from '../pages/dashboard/pokemons/index';
+import MyPokemons from '../pages/dashboard/pokemons/my-pokemon';
+import DetailPokemons from '../pages/dashboard/pokemons/[id]';
+
+import IndexUser from '../services/users';
 import Todos from '../pages/dashboard/todos';
+
 import SignIns from '../pages/auth/signins';
 import SignUps from '../pages/auth/signups';
-import MyPokemons from '../pages/dashboard/my-pokemons';
-import IndexUser from '../services/users';
-import DetailPokemons from '../pages/dashboard/pokemons/[id]';
+
 
 function IndexRouter() {
   return (

@@ -26,7 +26,7 @@ function Home() {
                             <img
                                 src={require("../img/App Store.png")}
                                 alt=""
-                                className={downloadImgStyle + ` mr-5` }
+                                className={downloadImgStyle + ` mr-5`}
                             />
                             <img
                                 src={require("../img/Google Play.png")}

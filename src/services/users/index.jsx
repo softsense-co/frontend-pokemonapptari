@@ -37,11 +37,10 @@ const IndexUser = () => {
                         <div className='grid grid-cols-2 md:grid-cols-3  gap-7 pb-12 px-8'>
                             {arrUser}
                         </div>
-
                     </div>
-
                 </div>
             </div>
+
         </div>
     )
 }
