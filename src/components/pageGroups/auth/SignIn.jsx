@@ -1,15 +1,13 @@
 import React, { useState } from 'react'
 import { Link } from "react-router-dom";
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-
 const SignIn = () => {
 
-    let navigate = useNavigate();
+    
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
@@ -46,6 +44,7 @@ const SignIn = () => {
                 <div className='pl-20 md:pr-10'>
                     <h1 className='text-3xl font-extrabold text-center py-8 text-slate-600'>SIGN IN</h1>
                     <img src="/img/icon6.jpg" alt="" className='md:hidden rounded-3xl py-5' />
+
                     <form onSubmit={handleSubmit}>
                         <div>
                             <label htmlFor='email' className='text-sm font-medium text-slate-600'>Email</label>
@@ -80,7 +79,6 @@ const SignIn = () => {
                     </form>
                     <ToastContainer />
 
-
                 </div>
 
                 {/* img login */}
@@ -91,6 +89,7 @@ const SignIn = () => {
 
             </div>
             {/* screen dalam */}
+
         </div>
     )
 }

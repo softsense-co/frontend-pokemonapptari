@@ -1,20 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { isLoggedIn } from "../services/auth";
-import { useNavigate } from "react-router-dom"
+
 
 function Header() {
     const buttonStyle = 'border-[1px] rounded-[10px] border-[#deedec] px-[20px] py-[7px]'
     const [modal, setModal] = useState(false);
-    const navigate = useNavigate();
+    const [isLogin, setIsLogin] = useState(false);
 
-    function handleOnClick() {
-        localStorage.removeItem("authToken");
+    useEffect(() => {
+        const authToken = localStorage.getItem('authToken');
+        if (authToken) {
+            setIsLogin(true);
+        }
+    }, []);
+
+    function handleLogin() {
         window.location.href = "/Login"
     }
 
-    function handleCancel() {
-        setModal(false);
+    function handleLogout() {
+        localStorage.removeItem("authToken");
+        setIsLogin(false);
+        window.location.href = "/"
+    }
+
+    function handleModal() {
+        setModal(true);
     }
 
     return (
@@ -30,6 +42,7 @@ function Header() {
                     <li className=" mr-12 text-slate-700 hover:text-white">
                         <Link to="/">Home</Link>
                     </li>
+
                     {isLoggedIn() && (
                         <>
                             <li className=" mr-12 text-slate-700 hover:text-white">
@@ -40,32 +53,40 @@ function Header() {
                             </li>
                         </>
                     )}
+
                     <li className=" mr-12 text-slate-700 hover:text-white">
                         <Link to="/Todos">Todo</Link>
                     </li>
                     <li className=" mr-12 text-slate-700 hover:text-white">
                         <Link to="/Users">User</Link>
                     </li>
-
                 </ul>
             </div>
 
-            {/* button */}
+            {/* button Login : Logout */}
             <div className="buttons text-slate-700 font-medium ">
-                <label htmlFor="my-modal" className={buttonStyle + ` mr-2 hover:bg-[#deedec]`}>Log Out</label>
-                <input type="checkbox" id="my-modal" className="modal-toggle" checked={modal} onChange={() => setModal(!modal)} />
-                <div className="modal modal-bottom sm:modal-middle">
-                    <div className="modal-box text-left bg-slate-800">
-                        <h3 className="font-semibold text-white text-base ">Are you sure to Sign out?</h3>
-                        <div className="modal-action">
-                            <button className="btn btn-sm bg-slate-600" onClick={handleCancel}>Cancel</button>
-                            <button className="btn btn-sm btn-accent" onClick={handleOnClick}>Yes !</button>
+                <button
+                    onClick={isLogin ? handleModal : handleLogin}
+                    className={buttonStyle + ` mr-2 hover:bg-[#deedec]`}>
+                    {isLogin ? 'Logout' : 'Sign In'}
+                </button>
+
+                {modal && (
+                    <div className="fixed inset-0 bg-black bg-opacity-30 z-50 flex items-center justify-center">
+                        <input type="checkbox" id="my-modal" className="modal-toggle" checked={modal}/>
+                        <div className="modal modal-bottom sm:modal-middle">
+                            <div className="modal-box text-left bg-slate-800">
+                                <h3 className="font-semibold text-white text-base ">Are you sure to Logout ?</h3>
+                                <div className="modal-action text-sm">
+                                    <button className="btn btn-sm bg-slate-500" onClick={() => setModal(false)}>Cancel</button>
+                                    <button className="btn btn-sm bg-red-600" onClick={handleLogout}>Logout</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                )}
             </div>
 
-            
         </div>
     )
 }
