@@ -61,7 +61,6 @@ const DetailPokemon = () => {
         setPokemonAdd(null);
     }
 
-
     return (
         <div>
             <div className="bg-white/40 items-center mt-10 p-6 rounded-3xl max-w-md mx-auto sm:max-w-lg md:max-w-2xl grid lg:grid-cols-2 lg:max-w-5xl xl:max-w-[75rem]">

@@ -76,8 +76,9 @@ function Header() {
                         <input type="checkbox" id="my-modal" className="modal-toggle" checked={modal}/>
                         <div className="modal modal-bottom sm:modal-middle">
                             <div className="modal-box text-left bg-slate-800">
+                                <p className="text-sm text-red-500 py-2">Logout Confirmation</p>
                                 <h3 className="font-semibold text-white text-base ">Are you sure to Logout ?</h3>
-                                <div className="modal-action text-sm">
+                                <div className="modal-action">
                                     <button className="btn btn-sm bg-slate-500" onClick={() => setModal(false)}>Cancel</button>
                                     <button className="btn btn-sm bg-red-600" onClick={handleLogout}>Logout</button>
                                 </div>
