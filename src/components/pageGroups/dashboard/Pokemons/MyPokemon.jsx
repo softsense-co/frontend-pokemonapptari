@@ -40,7 +40,7 @@ const MyPokemon = () => {
     return (
         <div className="flex flex-col justify-start py-8 relative">
             <h1 className='text-[24px] font-bold px-32 pt-5 text-slate-700'>My Pokemons</h1>
-            <div className="px-52 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 py-8 gap-4 sm:gap-9 lg:gap-7">
+            <div className="px-56 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 py-8 gap-4 sm:gap-9 lg:gap-7">
 
                 {/* Data From Storage */}
                 {Array.from(pokemonDatas || []).map((item, index) => {
