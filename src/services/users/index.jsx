@@ -30,11 +30,11 @@ const IndexUser = () => {
     return (
         <div>
             <Header />
-            <div>
-                <div className='bg-white/50 my-10 rounded-3xl shadow-2xl max-w-md mx-auto sm:max-w-lg md:max-w-2xl lg:max-w-4xl'>
-                    <h1 className='text-3xl font-extrabold text-center py-9 text-slate-600'>Users</h1>
+            <div className='mx-14 my-16 pb-20 sm:mx-3'>
+                <div className='bg-white/50  rounded-3xl shadow-2xl max-w-md mx-auto sm:max-w-lg md:max-w-2xl lg:max-w-4xl'>
+                    <h1 className='text-3xl font-extrabold text-center text-slate-600 py-8'>Users</h1>
                     <div >
-                        <div className='grid grid-cols-2 md:grid-cols-3  md:gap-9 gap-16 pb-12 px-10'>
+                        <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  md:gap-9 gap-16 pb-12 px-10'>
                             {arrUser}
                         </div>
                     </div>

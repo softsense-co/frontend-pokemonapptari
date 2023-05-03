@@ -37,13 +37,13 @@ const SignIn = () => {
 
     return (
         // screen
-        <div className='flex w-full  lg:w-full h-screen  items-center justify-center'>
+        <div className='flex w-full px-5 md:px-2 lg:w-full h-screen  items-center justify-center'>
             {/* screen dalam */}
-            <div className=' flex bg-white/50 px-10 py-20 rounded-3xl '>
+            <div className=' flex bg-white/50 py-3 md:py-20 rounded-3xl '>
                 {/* form login */}
-                <div className='pl-20 md:pr-10'>
-                    <h1 className='text-3xl font-extrabold text-center py-8 text-slate-600'>SIGN IN</h1>
-                    <img src="/img/icon6.jpg" alt="" className='md:hidden rounded-3xl py-5' />
+                <div className=' pl-[70px] md:pr-10'>
+                    <h1 className='text-2xl md:text-3xl font-extrabold text-center py-5 text-slate-600'>SIGN IN</h1>
+                    <img src="/img/icon6.jpg" alt="" className='md:hidden rounded-xl py-5' />
 
                     <form onSubmit={handleSubmit}>
                         <div>
@@ -65,7 +65,7 @@ const SignIn = () => {
                         {/* BUTTON */}
                         <div className='flex flex-col gap-y-4 py-10'>
                             <button type='submit'
-                                className="bg-[#b1ced8] rounded-xl  py-[5px] mr-2 hover:bg-[#deedec] text-slate-600 font-semibold" >
+                                className="bg-[#b1ced8] rounded-xl  py-[5px] mr-2 hover:bg-[#acc0be] text-slate-600 font-semibold" >
                                 Sign In
                             </button>
                             <Link to="/SignUp">

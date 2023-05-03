@@ -36,10 +36,10 @@ function Header() {
     }
 
     return (
-        <div className="header flex items-center justify-between px-8 sm:px-16 md:px-10 lg:px-36 pt-5">
+        <div className="header flex items-center justify-between px-8 sm:px-16 md:px-10 lg:px-28 pt-5">
             {/* logo */}
             <Link to="/">
-                <img src="/img/icon.png" alt="" className="logo w-[60px] h-[45px]  sm:w-[75px] sm:h-[60px] lg:w-[100px] lg:h-[78px] " />
+                <img src="/img/icon.png" alt="" className="logo w-[60px] h-[45px]  sm:w-[75px] sm:h-[60px] md:w-[85px] md:h-[70px] lg:w-[100px] lg:h-[78px] " />
             </Link>
 
             {/* hamburger icon for mobile navigation */}

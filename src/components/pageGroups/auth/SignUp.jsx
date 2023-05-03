@@ -15,13 +15,13 @@ const SignUp = () => {
 
     return (
         // screen
-        <div className='flex w-full  lg:w-full h-screen  items-center justify-center'>
+        <div className='flex w-full px-5 md:px-2 lg:w-full h-screen  items-center justify-center'>
             {/* screen dalam */}
-            <div className=' flex bg-white/50 py-20 rounded-3xl '>
+            <div className=' flex bg-white/50 py-3 md:py-20 rounded-3xl '>
                 {/* form login */}
-                <div className='pl-20 md:pr-10'>
-                    <h1 className='text-3xl font-extrabold text-center py-8 text-slate-600'>SIGN UP</h1>
-                    <img src="/img/icon6.jpg" alt="" className='md:hidden rounded-3xl py-5' />
+                <div className='pl-[70px] md:pr-10'>
+                    <h1 className='text-2xl md:text-3xl font-extrabold text-center py-5 text-slate-600'>SIGN UP</h1>
+                    <img src="/img/icon6.jpg" alt="" className='md:hidden rounded-xl py-5' />
                     <form onSubmit={handleSubmit}>
                         <div>
                             <label htmlFor='name' className='text-sm font-medium text-slate-600'>Username</label>

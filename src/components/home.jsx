@@ -2,14 +2,14 @@ import React from 'react'
 
 function Home() {
 
-    const downloadImgStyle = 'border-[1px] border-[#232A4E] md:rounded-[9px] lg:rounded-[13px] lg:h-[3rem] h-[1.5rem] w-[5rem] md:h-[2rem] md:w-[7rem] lg:w-[10rem]'
+    const downloadImgStyle ='border-[1px] border-[#232A4E] h-[1.5rem] w-[5rem] md:rounded-[9px] md:h-[2rem] md:w-[7rem] lg:rounded-[13px] lg:h-[3rem] lg:w-[10rem]'
 
     return (
-        <div className="wrapper lg:flex items-center justify-between px-10 sm:px-10 md:px-24 lg:px-32 xl:px-36 2xl:px-52  w-[100%] h-[350px] sm:h-[290px] md:h-[400px] lg:h-[700px] z-[3]">
+        <div className="wrapper lg:flex items-center justify-between px-10 sm:px-10 md:px-[60px] lg:px-[90px] xl:px-[110px] 2xl:px-52 w-[100%] h-[380px] sm:h-[290px] md:h-[400px] lg:h-[550px] xl:h-[600px] z-[3]">
             {/* left side */}
-            <div className="heading flex flex-col items-start justify-center text-slate-700 h-[100%] text-[14px] sm:text-[17px] md:text-[19px] lg:text-[2rem] xl:text-[3rem]">
-                <span className='px-4'>Experience The</span>
-                <span className='px-4 xl:text-[2.3rem] text-[16px] md:text-[24px] 2xl:text-[3rem]'>
+            <div className="heading flex flex-col items-start justify-center text-slate-700 h-[100%] text-[15px] sm:text-[19px] md:text-[20px] lg:text-[32px] xl:text-[40px]">
+                <span>Experience The</span>
+                <span className='text-[16px] md:text-[22px] lg:text-[34px] xl:text-[37px]'>
                     <b>Best Quality Game</b>
                 </span>
 
@@ -33,13 +33,13 @@ function Home() {
 
                 </div>
 
-                <span className="text-[11px] sm:text-[12px] md:text-[13px] pt-[180px] sm:py-4 text-slate-600 text-left">
+                <span className="text-[12px] md:text-[15px] lg:text-[18px] pt-[180px] pb-[10px] sm:py-4 text-slate-600 text-left">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 </span>
 
                 {/* download ads */}
                 <div>
-                    <span className="text-[10px] md:text-[12px] pt-2">Download now on IOS and Android</span>
+                    <span className="text-[11px] md:text-[13px] lg:text-[15px] ">Download now on IOS and Android</span>
                     <div className="download">
                         <div className="download_images flex">
                             <img
@@ -62,17 +62,17 @@ function Home() {
                 <img
                     src="/img/pikachu.png"
                     alt=""
-                    className="absolute lg:-top-56 md:-top-[300px] -top-[200px] md:left-[370px] left-[325px] h-[150px] md:h-[195px] lg:left-[5rem] lg:h-[350px] xl:h-[30rem]"
+                    className="absolute -top-[230px] left-[325px] h-[160px] md:left-[390px] md:h-[200px] md:-top-[310px] lg:left-[90px] lg:-top-[180px] lg:h-[300px] xl:h-[430px] xl:-top-[190px] xl:left-[10px] 2xl"
                 />
                 <img
                     src="/img/Jigglypuff.png"
                     alt=""
-                    className="absolute md:h-[115px] h-[80px] left-[515px] -top-[220px] md:left-[570px] md:-top-[350px] lg:-top-[250px] lg:left-[450px] xl:left-[40rem] lg:h-[190px] xl:h-60"
+                    className="absolute md:h-[115px] h-[80px] left-[515px] -top-[260px] md:left-[620px] md:-top-[350px] lg:-top-[230px] lg:left-[470px] xl:left-[490px] xl:-top-[250px] lg:h-[150px] xl:h-60 2xl:left-[580px] "
                 />
                 <img
                     src="/img/wartortle.png"
                     alt=""
-                    className="absolute h-[125px] left-[450px] -top-[150px]  md:h-[150px] md:left-[530px] md:-top-[270px] lg:-top-[130px] lg:left-[380px] xl:left-[30rem] lg:h-[270px] xl:h-[23rem]"
+                    className="absolute h-[125px] left-[465px] -top-[215px]  md:h-[150px] md:left-[560px] md:-top-[270px] lg:-top-[130px] lg:left-[350px] xl:-top-[110px] xl:left-[380px] lg:h-[240px] xl:h-[320px]"
                 />
 
             </div>

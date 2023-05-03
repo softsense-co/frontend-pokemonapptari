@@ -59,9 +59,9 @@ const Todo = () => {
 
     
     return (
-        <div className='pt-16'>
+        <div className='pt-16 px-3'>
             <div className='bg-white/50  py-3 rounded-3xl shadow-2xl max-w-md mx-auto sm:max-w-lg md:max-w-2xl lg:max-w-4xl xl:max-w-[50rem]'>
-                <h1 className='text-2xl lg:text-3xl font-extrabold text-center py-8 text-slate-600'>Todo List</h1>
+                <h1 className='text-xl md:text-2xl lg:text-3xl font-extrabold text-center py-8 text-slate-600'>Todo List</h1>
                 {/* form todo */}
                 <form onSubmit={(e) => {
                     e.preventDefault()
@@ -88,9 +88,9 @@ const Todo = () => {
                     <ul className=' font-medium text-slate-600'>
                         {inputs.map(newInput => {
                             return (
-                                <div className='grid grid-cols-2 items-center py-1 px-[60px] md:px-28 lg:px-44'>
+                                <div className='grid grid-cols-2 items-center py-1 px-8 sm:px-[70px] md:px-24 lg:px-44'>
                                     <li key={newInput.id}>{newInput.newInput}</li>
-                                    <div className='pl-8 pr-10 md:pl-13 md:pr-21 lg:pr-30 xl:pr-[90px] grid grid-cols-2 gap-3'>
+                                    <div className='pl-8 pr-10 md:pl-15 md:pr-28 lg:pr-32 xl:pr-[90px] grid grid-cols-2 gap-3'>
                                         <button
                                             type="button"
                                             className='p-[10px] bg-[#55a8a3] text-slate-100 font-semibold rounded-md hover:bg-[#96b6b5]'
