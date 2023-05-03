@@ -7,7 +7,7 @@ function Home() {
     return (
         <div className="wrapper lg:flex items-center justify-between px-10 sm:px-10 md:px-[60px] lg:px-[90px] xl:px-[110px] 2xl:px-52 w-[100%] h-[380px] sm:h-[290px] md:h-[400px] lg:h-[550px] xl:h-[600px] z-[3]">
             {/* left side */}
-            <div className="heading flex flex-col items-start justify-center text-slate-700 h-[100%] text-[15px] sm:text-[19px] md:text-[20px] lg:text-[32px] xl:text-[40px]">
+            <div className="heading flex flex-col items-start justify-center text-slate-700 h-[100%] text-[18px] sm:text-[19px] md:text-[20px] lg:text-[32px] xl:text-[40px]">
                 <span>Experience The</span>
                 <span className='text-[16px] md:text-[22px] lg:text-[34px] xl:text-[37px]'>
                     <b>Best Quality Game</b>

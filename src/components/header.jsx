@@ -5,7 +5,7 @@ import { FaBars, FaTimes } from "react-icons/fa";
 
 
 function Header() {
-    const buttonStyle = 'border-[1px] rounded-[10px] border-[#deedec] px-[20px] py-[7px]'
+    const buttonStyle = 'border-[1px] rounded-[9px] md:rounded-[10px] border-[#deedec] px-[11px] py-[4px] md:px-[20px] md:py-[7px]'
     const [modal, setModal] = useState(false);
     const [isLogin, setIsLogin] = useState(false);
     const [click, setClick] = useState(false);
@@ -36,7 +36,7 @@ function Header() {
     }
 
     return (
-        <div className="header flex items-center justify-between px-8 sm:px-16 md:px-10 lg:px-28 pt-5">
+        <div className="header flex items-center justify-between px-8 sm:px-16 md:px-10 lg:px-20 pt-5">
             {/* logo */}
             <Link to="/">
                 <img src="/img/icon.png" alt="" className="logo w-[60px] h-[45px]  sm:w-[75px] sm:h-[60px] md:w-[85px] md:h-[70px] lg:w-[100px] lg:h-[78px] " />
@@ -74,10 +74,8 @@ function Header() {
                 </ul>
             </div>
 
-
-
             {/* button Login : Logout */}
-            <div className="buttons text-slate-700 font-medium md:block hidden">
+            <div className="buttons text-slate-700 font-medium ">
                 <button
                     onClick={isLogin ? handleModal : handleLogin}
                     className={buttonStyle + ` mr-2 hover:bg-[#deedec]`}>
