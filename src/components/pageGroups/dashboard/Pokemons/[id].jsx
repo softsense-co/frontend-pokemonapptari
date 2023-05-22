@@ -62,19 +62,22 @@ const DetailPokemon = () => {
     }
 
     return (
-        <div>
+        <div className='px-4'>
             <div className="bg-white/40 items-center mt-10 p-6 rounded-3xl max-w-md mx-auto sm:max-w-lg md:max-w-2xl grid lg:grid-cols-2 lg:max-w-5xl xl:max-w-[75rem]">
+                {/* lebar layar lg */}
                 <div className="hidden lg:block px-5">
                     <img src={pokemonData?.img}
                         alt="event"
                         className="w-[400px] xl:w-[450px] rounded-xl shadow-xl " />
                 </div>
+                {/* lebar layar lg */}
+
                 <div className="lg:py-10 ">
-                    <h2 className="text-3xl font-semibold text-slate-700 md:pb-4 md:text-3xl lg:text-4xl">{pokemonData?.name}</h2>
+                    <h2 className="text-[22px] font-bold text-slate-700 pb-4 md:text-3xl lg:text-4xl">{pokemonData?.name}</h2>
                     <img src={pokemonData?.img} alt="event"
                         className="pt-4 rounded-xl shadow-xl w-[250px] mx-auto sm:py-10 sm:w-[300px] lg:hidden" />
-                    <h6 className='font-bold lg:pt-2 md:pt-6'>Moves</h6>
-                    <p className="pt-3 text-slate-600 text-justify sm:pt-5 md:pt-2 lg:pt-2 text-sm sm:text-base md:text-base">
+                    <h6 className='font-bold lg:pt-2 md:pt-6 pt-5 text-slate-700'>Moves</h6>
+                    <p className="pt-3 text-slate-600 text-justify sm:pt-5 md:pt-2 text-sm sm:text-base">
                         {Array.from(pokemonData?.moves || [])
                             .slice(0, 30)
                             .map((item) => {

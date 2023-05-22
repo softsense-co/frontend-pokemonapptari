@@ -1,16 +1,28 @@
 import React, { useState } from 'react'
 import { Link } from "react-router-dom";
+import axios from 'axios';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const SignUp = () => {
-
     const buttonStyle = 'bg-[#b1ced8] rounded-[8px]  py-1'
     const [email, setEmail] = useState('');
-    const [pass, setPass] = useState('');
+    const [password, setPassword] = useState('');
     const [name, setName] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(email);
+        axios.post('http://localhost:3001/auth/register', { name, email, password })
+            .then((response) => {
+                localStorage.setItem("authToken", true);
+                console.log(response);
+                window.location.href = "/SignIn"
+            })
+            .catch((error) => {
+                toast.error("Please add a valid data", {
+                    autoClose: 2500
+                });
+            });
     }
 
     return (
@@ -21,7 +33,7 @@ const SignUp = () => {
                 {/* form login */}
                 <div className='pl-[70px] md:pr-10'>
                     <h1 className='text-2xl md:text-3xl font-extrabold text-center py-5 text-slate-600'>SIGN UP</h1>
-                    <img src="/img/icon6.jpg" alt="" className='md:hidden rounded-xl py-5' />
+                    <img src="/img/icon3.jpg" alt="" className='md:hidden rounded-xl py-5' />
                     <form onSubmit={handleSubmit}>
                         <div>
                             <label htmlFor='name' className='text-sm font-medium text-slate-600'>Username</label>
@@ -39,7 +51,7 @@ const SignUp = () => {
                         </div>
                         <div className='pt-3'>
                             <label htmlFor='password' className='text-sm font-medium text-slate-600'>Password</label>
-                            <input value={pass} onChange={(e) => setPass(e.target.value)}
+                            <input value={password} onChange={(e) => setPassword(e.target.value)}
                                 type='password' id='password' name='password'
                                 className='w-full border-2 border-gray-100 rounded-xl p-2 mt-1'
                                 placeholder='**********' />
@@ -57,7 +69,7 @@ const SignUp = () => {
 
                 {/* img login */}
                 <div className='px-10 flex items-center'>
-                    <img src="/img/icon6.jpg" alt="" className='hidden md:block rounded-2xl md:w-[43rem]' />
+                    <img src="/img/icon3.jpg" alt="" className='hidden md:block rounded-2xl md:w-[43rem]' />
                 </div>
 
             </div>

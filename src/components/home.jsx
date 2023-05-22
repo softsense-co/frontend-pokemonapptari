@@ -33,7 +33,7 @@ function Home() {
 
                 </div>
 
-                <span className="text-[12px] md:text-[15px] lg:text-[18px] pt-[180px] pb-[10px] sm:py-4 text-slate-600 text-left">
+                <span className="text-[14px] md:text-[15px] lg:text-[18px] pt-[180px] pb-[10px] sm:py-4 text-slate-600 text-left">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 </span>
 

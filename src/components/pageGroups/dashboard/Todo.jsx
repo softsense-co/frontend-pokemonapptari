@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { FaEdit, FaTrash } from "react-icons/fa";
 
 const Todo = () => {
-
     const [newInput, setNewInput] = useState("");
     const [inputs, setInputs] = useState([]);
     const [editID, setEditID] = useState(0);
@@ -57,18 +56,17 @@ const Todo = () => {
         setEditID(id);
     };
 
-    
     return (
-        <div className='pt-16 px-3'>
+        <div className='pt-14 px-3'>
             <div className='bg-white/50  py-3 rounded-3xl shadow-2xl max-w-md mx-auto sm:max-w-lg md:max-w-2xl lg:max-w-4xl xl:max-w-[50rem]'>
-                <h1 className='text-xl md:text-2xl lg:text-3xl font-extrabold text-center py-8 text-slate-600'>Todo List</h1>
+                <h1 className='text-lg sm:text-xl md:text-2xl lg:text-3xl font-extrabold text-center py-4 pb-7 text-slate-600'>Todo List</h1>
                 {/* form todo */}
                 <form onSubmit={(e) => {
                     e.preventDefault()
                     addList()
                 }}>
                     <div className='flex justify-center items-center'>
-                        <input type="text" className='w-[250px] sm:w-[300px] md:w-[350px] rounded-lg p-2 mt-1'
+                        <input type="text" className='w-[230px] sm:w-[300px] md:w-[350px] rounded-lg p-2'
                             value={newInput}
                             onChange={e => setNewInput(e.target.value)} />
 

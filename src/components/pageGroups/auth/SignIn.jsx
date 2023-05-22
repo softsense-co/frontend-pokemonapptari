@@ -6,8 +6,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 const SignIn = () => {
-
-    
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
@@ -34,7 +32,6 @@ const SignIn = () => {
             });
     }
 
-
     return (
         // screen
         <div className='flex w-full px-5 md:px-2 lg:w-full h-screen  items-center justify-center'>
@@ -43,7 +40,7 @@ const SignIn = () => {
                 {/* form login */}
                 <div className=' pl-[70px] md:pr-10'>
                     <h1 className='text-2xl md:text-3xl font-extrabold text-center py-5 text-slate-600'>SIGN IN</h1>
-                    <img src="/img/icon6.jpg" alt="" className='md:hidden rounded-xl py-5' />
+                    <img src="/img/icon3.jpg" alt="" className='md:hidden rounded-xl py-5' />
 
                     <form onSubmit={handleSubmit}>
                         <div>
@@ -78,18 +75,16 @@ const SignIn = () => {
                         </div>
                     </form>
                     <ToastContainer />
-
                 </div>
 
                 {/* img login */}
                 <div className='px-10 flex items-center'>
-                    <img src="/img/icon6.jpg" alt="" className='hidden md:block rounded-2xl md:w-[43rem]' />
+                    <img src="/img/icon3.jpg" alt="" className='hidden md:block rounded-2xl md:w-[43rem]' />
 
                 </div>
 
             </div>
             {/* screen dalam */}
-
         </div>
     )
 }

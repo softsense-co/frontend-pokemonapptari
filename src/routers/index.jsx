@@ -26,7 +26,7 @@ function IndexRouter() {
             <Route path="/MyPokemons" element={isLoggedIn() ? <MyPokemons /> : <Navigate to="/Login" />} />
             <Route path='/pokemons/:id' element={<DetailPokemons />} />
 
-            <Route path="/Login" element={!!isLoggedIn() ? <Navigate to="/" /> : <SignIns />} />
+            <Route path="/SignIn" element={!!isLoggedIn() ? <Navigate to="/" /> : <SignIns />} />
             <Route path='/SignUp' element={<SignUps />} />
         </Routes>
     </Router>
