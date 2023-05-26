@@ -19,7 +19,7 @@ const SignIn = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('https://reqres.in/api/login', { email, password })
+        axios.post('http://localhost:3001/login', { email, password })
             .then((response) => {
                 localStorage.setItem("authToken", true);
                 console.log(response);

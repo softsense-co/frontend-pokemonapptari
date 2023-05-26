@@ -12,7 +12,7 @@ const SignUp = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:3001/auth/register', { name, email, password })
+        axios.post('http://localhost:3001/register', { name, email, password })
             .then((response) => {
                 localStorage.setItem("authToken", true);
                 console.log(response);
@@ -56,15 +56,16 @@ const SignUp = () => {
                                 className='w-full border-2 border-gray-100 rounded-xl p-2 mt-1'
                                 placeholder='**********' />
                         </div>
-                    </form>
 
-                    {/* BUTTON */}
-                    <div className='flex flex-col gap-y-4 py-10'>
-                        <button className={buttonStyle + ` mr-2 hover:bg-[#deedec] text-slate-600 font-semibold`}>Sign Up</button>
-                        <Link to="/SignIn">
-                            <button className='font-semibold text-xs text-[#83a9a5] hover:text-[#5f6060]'>Alredy have an account? <span className='font-extrabold'>Sign in</span> here</button>
-                        </Link>
-                    </div>
+                        {/* BUTTON */}
+                        <div className='flex flex-col gap-y-4 py-10'>
+                            <button className={buttonStyle + ` mr-2 hover:bg-[#deedec] text-slate-600 font-semibold`}>Sign Up</button>
+                            <Link to="/SignIn">
+                                <button className='font-semibold text-xs text-[#83a9a5] hover:text-[#5f6060]'>Alredy have an account? <span className='font-extrabold'>Sign in</span> here</button>
+                            </Link>
+                        </div>
+
+                    </form>
                 </div>
 
                 {/* img login */}

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { getPokemon, getPokemonName } from '../../../../services/pokemons';
+import { getPokemon } from '../../../../services/pokemons';
 import { FaPlus } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
@@ -16,35 +16,63 @@ function Index() {
 
     const fetchPokemons = async () => {
         try {
-            const payload = await getPokemon();
-            const promises = Array.from(payload?.data?.results || []).map(
-                async (item) => {
-                    const payloadDetail = await getPokemonName(item?.name || "");
+            const response = await getPokemon();
+            const data = response.data;
+
+            if (response.status === 200) {
+                const pokemons = data?.datas.map(async (pokemon) => {
+                    const moves = pokemon.moves.split("-");
                     return {
-                        ...payloadDetail.data,
-                        id: payloadDetail?.data?.name || "",
-                        name: payloadDetail?.data?.name || "",
-                        img:
-                            payloadDetail?.data?.sprites.other.dream_world.front_default ||
-                            "",
+                        id: pokemon.id,
+                        name: pokemon.name,
+                        avatar: pokemon.avatar,
+                        moves: moves,
                     };
-                }
-            );
-            const results = await Promise.all(promises);
-            setPokemons(results);
+                });
+
+                const results = await Promise.all(pokemons);
+                setPokemons(results);
+            } else {
+                console.log("Error:", response.status);
+            }
         } catch (error) {
             console.log(error, "error");
         }
-    };
+    }
+
+    // const fetchPokemons = async () => {
+    //     try {
+    //         const payload = await getPokemon();
+    //         const promises = Array.from(payload?.data?.results || []).map(
+    //             async (item) => {
+    //                 const payloadDetail = await getPokemonName(item?.name || "");
+    //                 return {
+    //                     ...payloadDetail.data,
+    //                     id: payloadDetail?.data?.name || "",
+    //                     name: payloadDetail?.data?.name || "",
+    //                     img:
+    //                         payloadDetail?.data?.sprites.other.dream_world.front_default ||
+    //                         "",
+    //                 };
+    //             }
+    //         );
+    //         const results = await Promise.all(promises);
+    //         setPokemons(results);
+    //     } catch (error) {
+    //         console.log(error, "error");
+    //     }
+    // };
 
     const addPokemons = (item) => {
-        const myPokemonslocalstorage = localStorage.getItem('pokemonData')
+        const myPokemonslocalstorage = localStorage.getItem('pokemonData');
+        const newPokemon = { id: item.id, name: item.name, avatar: item.avatar };
+
         if (myPokemonslocalstorage) {
             const myPokemons = JSON.parse(myPokemonslocalstorage);
-            const newMyPokemons = [...myPokemons, { id: item.id, name: item.name, img: item.img }];
+            const newMyPokemons = [...myPokemons, newPokemon];
             localStorage.setItem('pokemonData', JSON.stringify(newMyPokemons));
         } else {
-            const newMyPokemons = [{ id: item.id, name: item.name, img: item.img }];
+            const newMyPokemons = [newPokemon];
             localStorage.setItem('pokemonData', JSON.stringify(newMyPokemons));
         }
         toast.success("Add data, Success!!", {
@@ -52,11 +80,11 @@ function Index() {
         });
 
         setPokemonAdd(null);
-    }
+    };
 
     return (
         <div className="flex flex-col justify-start py-8 relative">
-            <h1 className='text-[20px] md:text-[22px] lg:text-[24px] font-bold px-16 sm:px-20 md:px-24 lg:px-32 pt-5 text-slate-700'>Pokemons</h1>
+            <h1 className='text-lg md:text-[22px] lg:text-[24px] font-bold px-16 sm:px-20 md:px-24 lg:px-32 pt-5 text-slate-700'>Pokemons</h1>
             <div className="px-14 sm:px-20 md:px-16 lg:px-28 xl:px-36 2xl:px-48 grid grid-cols sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 py-8 gap-4 sm:gap-7 lg:gap-8">
 
                 {/* Looping Data List */}
@@ -67,9 +95,9 @@ function Index() {
                     return (
                         <div key={index} id={item?.id}
                             className='bg-white/80 p-4 rounded-3xl'>
-                            <img src={item?.img} alt="" onClick={() => navigate(`/pokemons/${item.id}`)} className='h-52 mx-auto' />
+                            <img src={item?.avatar} alt="" onClick={() => navigate(`/pokemons/${item.id}`)} className='h-52 mx-auto' />
                             <h4 className='text-slate-700 text-base md:text-lg font-semibold py-3  text-center uppercase'>{item?.name}</h4>
-                            <div className='text-right'> 
+                            <div className='text-right'>
                                 {isAlreadyAdd ? (
                                     <span></span>
                                 ) : (
