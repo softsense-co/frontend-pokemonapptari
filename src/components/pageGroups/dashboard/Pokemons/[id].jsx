@@ -35,7 +35,8 @@ const DetailPokemon = () => {
                 id: payloadDetail?.data?.datas?.id || "",
                 name: payloadDetail?.data?.datas?.name || "",
                 avatar: payloadDetail?.data?.datas?.avatar || "",
-                moves: payloadDetail?.data?.datas?.moves ? payloadDetail?.data?.datas?.moves.split("-") : [],
+                type: payloadDetail?.data?.datas?.type || "",
+                description: payloadDetail?.data?.datas?.description || ""
             };
             setPokemons(result);
         } catch (error) {
@@ -76,12 +77,14 @@ const DetailPokemon = () => {
                     <h2 className="text-[22px] font-bold text-slate-700 pb-4 md:text-3xl lg:text-4xl">{pokemonData?.name}</h2>
                     <img src={pokemonData?.avatar} alt="event"
                         className="pt-4 rounded-xl shadow-xl w-[250px] mx-auto sm:py-10 sm:w-[300px] lg:hidden" />
-                    <h6 className='font-bold lg:pt-2 md:pt-6 pt-5 text-slate-700'>Moves</h6>
-                    {/* <p className="pt-3 text-slate-600 text-justify sm:pt-5 md:pt-2 text-sm sm:text-base">
-                        {pokemonData?.moves?.slice(0, 30).map((move, index) => (
-                            <span key={index} style={{ marginRight: 6 }}>{move}</span>
-                        ))}
-                    </p> */}
+                    <h6 className='font-bold lg:pt-2 md:pt-6 pt-5 text-slate-700'>Types</h6>
+                    <p className="pt-3 text-slate-600 text-justify sm:pt-5 md:pt-2 text-sm sm:text-base">
+                        <span>{pokemonData?.type}</span>
+                    </p>
+                    <h6 className='font-bold lg:pt-2 md:pt-6 pt-5 text-slate-700'>Description</h6>
+                    <p className="pt-3 text-slate-600 text-justify sm:pt-5 md:pt-2 text-sm sm:text-base">
+                        <span>{pokemonData?.description}</span>
+                    </p>
                     {isAdded ? null : (
                         <div className="text-center pt-8 font-bold" >
                             <button

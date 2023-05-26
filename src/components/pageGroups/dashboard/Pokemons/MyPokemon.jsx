@@ -59,7 +59,6 @@ const MyPokemon = () => {
                             <ToastContainer />
                         </div>
                     );
-
                 })}
 
                 <input type="checkbox" checked={pokemonDelete !== null} className="modal-toggle" />

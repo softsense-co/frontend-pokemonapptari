@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { getPokemon } from '../../../../services/pokemons';
+import { getPokemon, getPokemonName } from '../../../../services/pokemons';
 import { FaPlus } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
@@ -20,13 +20,15 @@ function Index() {
             const data = response.data;
 
             if (response.status === 200) {
-                const pokemons = data?.datas.map(async (pokemon) => {
-                    const moves = pokemon.moves.split("-");
+                const pokemons = data?.datas?.map(async (pokemon) => {
+                    const responseDetail = await getPokemonName(pokemon?.name || "");
                     return {
+                        ...responseDetail.data,
                         id: pokemon.id,
                         name: pokemon.name,
                         avatar: pokemon.avatar,
-                        moves: moves,
+                        type: pokemon.type,
+                        description: pokemon.description
                     };
                 });
 
@@ -39,7 +41,6 @@ function Index() {
             console.log(error, "error");
         }
     }
-
     // const fetchPokemons = async () => {
     //     try {
     //         const payload = await getPokemon();
