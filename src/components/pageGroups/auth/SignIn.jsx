@@ -19,7 +19,7 @@ const SignIn = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:3001/login', { email, password })
+        axios.post('https://tari-pokemon-server-production.up.railway.app/login', { email, password })
             .then((response) => {
                 console.log("token ", response.data.token);
                 const token = response.data.token;
