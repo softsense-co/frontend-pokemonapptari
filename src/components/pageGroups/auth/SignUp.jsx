@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -9,14 +9,18 @@ const SignUp = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [name, setName] = useState('');
+    const navigate = useNavigate();
 
     const handleSubmit = (e) => {
         e.preventDefault();
         axios.post('http://localhost:3001/register', { name, email, password })
             .then((response) => {
-                localStorage.setItem("authToken", true);
+                localStorage.setItem("authTokenRegister", true);
                 console.log(response);
-                window.location.href = "/SignIn"
+                navigate("/SignIn");
+                toast.success("Register Account Succefully!", {
+                    autoClose: 3000
+                });
             })
             .catch((error) => {
                 toast.error("Please add a valid data", {
