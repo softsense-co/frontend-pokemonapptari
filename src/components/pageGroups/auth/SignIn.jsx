@@ -21,9 +21,20 @@ const SignIn = () => {
         e.preventDefault();
         axios.post('http://localhost:3001/login', { email, password })
             .then((response) => {
-                localStorage.setItem("authToken", true);
-                console.log(response);
-                window.location.href = "/"
+                console.log("token ", response.data.token);
+                const token = response.data.token;
+                if (token) {
+                    localStorage.setItem("authToken", token);
+                    localStorage.removeItem("authTokenRegister");
+                    console.log(response);
+                    window.location.href = "/";
+                } else {
+                    // Tampilkan pesan kesalahan atau lakukan tindakan lain
+                    toast.error("You'r Account Is Not Valid", {
+                        autoClose: 2500
+                    });
+                }
+                
             })
             .catch((error) => {
                 toast.error("Please add a valid data", {
