@@ -1,5 +1,5 @@
 import axios from "axios";
-const baseURL = "https://tari-pokemon-server-production.up.railway.app"
+const baseURL = "http://localhost:3001"
 
 export const client = axios.create({
   baseURL

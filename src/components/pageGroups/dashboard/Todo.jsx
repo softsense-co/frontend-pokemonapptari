@@ -86,8 +86,8 @@ const Todo = () => {
                     <ul className=' font-medium text-slate-600'>
                         {inputs.map(newInput => {
                             return (
-                                <div className='grid grid-cols-2 items-center py-1 px-8 sm:px-[70px] md:px-24 lg:px-44'>
-                                    <li key={newInput.id}>{newInput.newInput}</li>
+                                <div key={newInput.id} className='grid grid-cols-2 items-center py-1 px-8 sm:px-[70px] md:px-24 lg:px-44'>
+                                    <li>{newInput.newInput}</li>
                                     <div className='pl-8 pr-10 md:pl-15 md:pr-28 lg:pr-32 xl:pr-[90px] grid grid-cols-2 gap-3'>
                                         <button
                                             type="button"

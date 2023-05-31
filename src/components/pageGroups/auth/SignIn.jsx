@@ -19,12 +19,13 @@ const SignIn = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.post('https://tari-pokemon-server-production.up.railway.app/login', { email, password })
+        axios.post('http://localhost:3001/login', { email, password })
             .then((response) => {
                 console.log("token ", response.data.token);
                 const token = response.data.token;
                 if (token) {
                     localStorage.setItem("authToken", token);
+                    localStorage.setItem("idUserLogged", response.data.id);
                     localStorage.removeItem("authTokenRegister");
                     console.log(response);
                     window.location.href = "/";

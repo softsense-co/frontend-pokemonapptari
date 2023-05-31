@@ -23,6 +23,7 @@ function Header() {
 
     function handleLogout() {
         localStorage.removeItem("authToken");
+        localStorage.removeItem("idUserLogged");
         setIsLogin(false);
         window.location.href = "/SignIn"
     }

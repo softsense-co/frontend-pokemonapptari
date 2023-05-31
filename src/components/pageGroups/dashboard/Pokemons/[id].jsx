@@ -63,7 +63,7 @@ const DetailPokemon = () => {
 
     return (
         <div className='px-4 h-[900px]'>
-            
+
             <div className="bg-white/60 items-center mt-10 p-6 rounded-3xl max-w-md mx-auto sm:max-w-lg md:max-w-2xl grid lg:grid-cols-2 lg:max-w-5xl xl:max-w-[75rem]">
                 {/* lebar layar lg */}
                 <div className="hidden lg:block px-5">
