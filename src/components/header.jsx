@@ -36,19 +36,21 @@ function Header() {
     }
 
     return (
-        <div className="header flex items-center justify-between px-8 sm:px-16 md:px-10 lg:px-20 pt-5">
+        <div className="header bg-white/30 flex items-center justify-between px-10 sm:px-16 md:px-10 lg:px-20 py-2">
             {/* logo */}
             <Link to="/">
                 <img src="/img/icon.png" alt="" className="logo w-[75px] h-[60px] md:w-[85px] md:h-[70px] lg:w-[100px] lg:h-[78px] " />
             </Link>
 
             {/* hamburger icon for mobile navigation */}
-            <div className="hamburger md:hidden" onClick={handleClick} >
-                {click ? (<FaTimes size={20} style={{ color: "#fff" }} />) : (<FaBars size={20} style={{ color: "#fff" }} />)}
+            <div
+                className="hamburger md:hidden "
+                onClick={handleClick} >
+                {click ? (<FaTimes size={19} className="text-slate-600"/>) : (<FaBars size={19} className="text-slate-600"/>)}
             </div>
 
             {/* side center menu */}
-            <div className={`menu flex md:block ${click ? "flex" : "hidden"}` }>
+            <div className={`menu flex md:block ${click ? "flex" : "hidden"}`}>
                 <ul className="flex flex-col md:flex-row justify-between text-slate-800 font-semibold md:items-center w-full">
                     <li className="my-5 md:my-0 md:mr-5 text-slate-700 hover:text-white">
                         <Link to="/" onClick={() => setClick(false)}>Home</Link>
@@ -71,9 +73,9 @@ function Header() {
                     <li className="my-5 md:my-0 md:mr-10 text-slate-700 hover:text-white">
                         <Link to="/Users" onClick={() => setClick(false)}>User</Link>
                     </li>
-                    
+
                     {/* button Login : Logout */}
-                    <div className="buttons lg:pl-[100px] xl:pl-[200px] 2xl:pl-96 text-slate-700 font-medium text-[14.5px] ">
+                    <li className="buttons lg:pl-[100px] xl:pl-[200px] 2xl:pl-96 text-slate-700 font-medium text-[14.5px] ">
                         <button
                             onClick={isLogin ? handleModal : handleLogin}
                             className={buttonStyle + ` mr-2 hover:bg-[#deedec]`}>
@@ -95,14 +97,11 @@ function Header() {
                                 </div>
                             </div>
                         )}
-                    </div>
+                    </li>
 
                 </ul>
 
             </div>
-
-
-
 
         </div>
 

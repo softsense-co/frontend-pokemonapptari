@@ -41,28 +41,6 @@ function Index() {
             console.log(error, "error");
         }
     }
-    // const fetchPokemons = async () => {
-    //     try {
-    //         const payload = await getPokemon();
-    //         const promises = Array.from(payload?.data?.results || []).map(
-    //             async (item) => {
-    //                 const payloadDetail = await getPokemonName(item?.name || "");
-    //                 return {
-    //                     ...payloadDetail.data,
-    //                     id: payloadDetail?.data?.name || "",
-    //                     name: payloadDetail?.data?.name || "",
-    //                     img:
-    //                         payloadDetail?.data?.sprites.other.dream_world.front_default ||
-    //                         "",
-    //                 };
-    //             }
-    //         );
-    //         const results = await Promise.all(promises);
-    //         setPokemons(results);
-    //     } catch (error) {
-    //         console.log(error, "error");
-    //     }
-    // };
 
     const addPokemons = (item) => {
         const myPokemonslocalstorage = localStorage.getItem('pokemonData');
@@ -76,17 +54,17 @@ function Index() {
             const newMyPokemons = [newPokemon];
             localStorage.setItem('pokemonData', JSON.stringify(newMyPokemons));
         }
+
         toast.success("Add data, Success!!", {
             autoClose: 2500
         });
-
         setPokemonAdd(null);
     };
 
     return (
-        <div className="flex flex-col justify-start py-8 relative">
-            <h1 className='text-lg md:text-[22px] lg:text-[24px] font-bold px-16 sm:px-20 md:px-24 lg:px-32 pt-5 text-slate-700'>Pokemons</h1>
-            <div className="px-14 sm:px-20 md:px-16 lg:px-28 xl:px-36 2xl:px-48 grid grid-cols sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 py-8 gap-4 sm:gap-7 lg:gap-8">
+        <div className="flex flex-col justify-start py-4 relative">
+            <h1 className='font-bold text-[20px] sm:text-[21px] md:text-[22px] lg:text-[24px] px-14 sm:px-20 md:px-24 lg:px-32 pt-5 md:pt-8 lg:pt-10 text-slate-700'>Pokemons</h1>
+            <div className="px-[68px] md:px-16 lg:px-20 xl:px-[73px] 2xl:px-48 grid grid-cols sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 py-6 md:py-8 gap-6 sm:gap-8 md:gap-9 lg:gap-7">
 
                 {/* Looping Data List */}
                 {Array.from(pokemonData || []).map((item, index) => {
@@ -95,7 +73,7 @@ function Index() {
                     const isAlreadyAdd = myPokemons.find(poke => poke.id === item.id) !== undefined;
                     return (
                         <div key={index} id={item?.id}
-                            className='bg-white/80 p-4 rounded-3xl'>
+                            className='bg-white/70 p-3 rounded-3xl'>
                             <img src={item?.avatar} alt="" onClick={() => navigate(`/pokemons/${item.id}`)} className='h-52 mx-auto' />
                             <h4 className='text-slate-700 text-base md:text-lg font-semibold py-3  text-center uppercase'>{item?.name}</h4>
                             <div className='text-right'>
